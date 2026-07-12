@@ -1,0 +1,25 @@
+extends CharacterBody3D
+
+@export var speed : float = 10.0
+var direction = Vector3.ZERO
+
+func _ready():
+	direction.x = randf_range(-1,1)
+	direction.z = randf_range(-1,1)
+	
+	direction = direction.normalized()
+	velocity = direction
+
+
+func _process(delta: float) -> void:
+	var collision : KinematicCollision3D = move_and_collide(velocity)
+	direction = direction.normalized()
+	if collision:
+		var surface_normal = collision.get_normal()
+		direction = bounce(direction, surface_normal).normalized()
+	velocity = direction * speed * delta
+
+
+func bounce(bouncing_vector: Vector3, normal: Vector3) -> Vector3:
+	return -2*(normal.dot(bouncing_vector))*normal + bouncing_vector
+	

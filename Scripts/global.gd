@@ -22,7 +22,7 @@ func request_chat_history():
 	set_chat_history.rpc_id(multiplayer.get_remote_sender_id(), chat_history)
 
 func get_all_resources_in_folder(path):
-	var items = {}
+	var items = []
 	var dir = DirAccess.open(path)
 	
 	if not dir:
@@ -36,7 +36,7 @@ func get_all_resources_in_folder(path):
 		if dir.current_is_dir():
 			items.merge(get_all_resources_in_folder(path + str(file_name)))
 		
-		if !file_name.begins_with(".") and file_name.ends_with(".tres"):
+		if !file_name.begins_with(".") and (file_name.ends_with(".tres") or file_name.ends_with(".tscn")):
 			# print('Loaded scene: ', file_name)
 			var full_path = path + "/" + file_name
 			# Remove .remap extension if present
@@ -48,7 +48,7 @@ func get_all_resources_in_folder(path):
 				var res = ResourceLoader.load(full_path)
 				if res:
 					# print("Loaded resource: ", full_path)
-					items[file_name] = res
+					items.append(res)
 				else:
 					push_error("Failed to load resource: ", full_path)
 			else:

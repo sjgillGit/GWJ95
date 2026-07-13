@@ -77,4 +77,4 @@ func swing():
 				var aim = camera.get_global_transform().basis
 				collider.direction = -aim.z
 				collider.direction.y = 0
-				
+				collider.hit_count += 1

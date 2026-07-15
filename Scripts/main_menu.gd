@@ -13,7 +13,7 @@ func _ready():
 	Global.set_ui_effect_recursive(self)
 
 func _on_play_pressed() -> void:
-	var scene = load("res://Scenes/pong.tscn").instantiate()
+	var scene = load("res://Assemblies/Pong/pong.tscn").instantiate()
 	get_tree().root.add_child(scene)
 	self.hide()
 	update_menu()

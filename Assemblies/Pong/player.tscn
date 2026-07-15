@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdk6hwb4hi2wc"]
 
-[ext_resource type="Script" uid="uid://c6a36b7nvb1sy" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://c6a36b7nvb1sy" path="res://Assemblies/Pong/player.gd" id="1_v0iea"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dgfsc"]
 size = Vector3(0.1, 0.1, 1)
@@ -17,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera/Arm:rotation")
+tracks/0/path = NodePath("Pivot/Camera/Arm:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera/Arm:position")
+tracks/1/path = NodePath("Pivot/Camera/Arm:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -45,7 +45,7 @@ length = 0.13333334
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera/Arm:rotation")
+tracks/0/path = NodePath("Pivot/Camera/Arm:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -57,7 +57,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera/Arm:position")
+tracks/1/path = NodePath("Pivot/Camera/Arm:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -73,24 +73,29 @@ _data = {
 &"Swing": SubResource("Animation_1sht0")
 }
 
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_dgfsc"]
+length = 0.87703395
+
 [node name="Player" type="CharacterBody3D" unique_id=2076882186]
 script = ExtResource("1_v0iea")
 acceleration = 50.0
 
-[node name="Camera" type="Camera3D" parent="." unique_id=1320158795]
+[node name="Pivot" type="Node3D" parent="." unique_id=1577888143]
+
+[node name="Camera" type="Camera3D" parent="Pivot" unique_id=1320158795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -0.37300467)
 fov = 80.0
 
-[node name="Arm" type="MeshInstance3D" parent="Camera" unique_id=1795873080]
+[node name="Arm" type="MeshInstance3D" parent="Pivot/Camera" unique_id=1795873080]
 transform = Transform3D(0.99996203, 0, 0.008710399, 0, 0.9999998, 0, -0.008710398, 0, 0.9999621, 0.21938705, -0.264848, -0.15722549)
 mesh = SubResource("BoxMesh_dgfsc")
 
-[node name="SwingArea" type="Area3D" parent="Camera" unique_id=1012177133]
+[node name="SwingArea" type="Area3D" parent="Pivot/Camera" unique_id=1012177133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83404577)
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera/SwingArea" unique_id=2057637525]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Camera/SwingArea" unique_id=2057637525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.054016113, 0, -0.029818594)
 shape = SubResource("BoxShape3D_okknv")
 
@@ -105,3 +110,11 @@ shape = SubResource("CapsuleShape3D_3l5as")
 [node name="AP" type="AnimationPlayer" parent="." unique_id=1873452871]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_8iyu6")
+
+[node name="ClimbingRay" type="CollisionShape3D" parent="." unique_id=901155441]
+transform = Transform3D(1, 0, 0, 0, -0.61913663, -0.7852834, 0, 0.7852834, -0.61913663, 0, 0.79790145, 0)
+shape = SubResource("SeparationRayShape3D_dgfsc")
+
+[node name="LadderSeeker" type="RayCast3D" parent="ClimbingRay" unique_id=1464387999]
+transform = Transform3D(1, 0, 0, 0, -0.017501593, 0.9998468, 0, -0.9998468, -0.017501593, 0, 0, 0)
+collision_mask = 4

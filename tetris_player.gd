@@ -26,6 +26,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump"): jumping = true
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
+	push(delta)
 	move_and_slide()
 
 func capture_mouse() -> void:
@@ -38,8 +39,8 @@ func release_mouse() -> void:
 
 func _walk(delta: float) -> Vector3:
 	walk_vel.z = velocity.z
-	move_dir = Input.get_vector("Left", "Right", "Forward", "Back")
-	walk_vel.z = walk_vel.move_toward(Vector3(0, 0, -move_dir.x) * speed, acceleration * delta).z
+	move_dir = Input.get_vector("Right", "Left", "Forward", "Back")
+	walk_vel.z = walk_vel.move_toward(Vector3(0, 0, move_dir.x) * speed, acceleration * delta).z
 	return walk_vel
 
 func _gravity(delta: float) -> Vector3:
@@ -62,3 +63,11 @@ func _jump(delta: float) -> Vector3:
 	else:
 		jump_vel = jump_vel.move_toward(Vector3(0,-15,0), gravity * 10 * delta)
 	return jump_vel
+
+func push(delta):
+	if !Input.is_action_pressed('Interact'): return
+	$GrabRay.target_position = Vector3(0, 0, move_dir.x*2)
+	var collider = $GrabRay.get_collider()
+	var floor_collider = $FloorCollider.get_collider()
+	if (collider and collider is RigidBody3D) and (floor_collider and floor_collider != collider):
+		collider.apply_central_force(Vector3(0, 0, move_dir.x)*35000*delta)

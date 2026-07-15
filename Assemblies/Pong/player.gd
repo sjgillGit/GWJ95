@@ -19,7 +19,9 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
-@onready var camera: Camera3D = $Camera
+@onready var camera: Camera3D = $Pivot/Camera
+@onready var ladder_seeker: RayCast3D = $ClimbingRay/LadderSeeker
+@onready var climbing_ray: CollisionShape3D = $ClimbingRay
 
 func _ready() -> void:
 	capture_mouse()
@@ -35,6 +37,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			swing()
 
 func _physics_process(delta: float) -> void:
+	ladder()
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
 	move_and_slide()
 
@@ -48,6 +51,7 @@ func release_mouse() -> void:
 
 func _rotate_camera(sens_mod: float = 1.0) -> void:
 	camera.rotation.y -= look_dir.x * camera_sens * sens_mod
+	$ClimbingRay.rotation.y = camera.rotation.y
 	camera.rotation.x = clamp(camera.rotation.x - look_dir.y * camera_sens * sens_mod, -1.5, 1.5)
 
 func _walk(delta: float) -> Vector3:
@@ -70,7 +74,7 @@ func _jump(delta: float) -> Vector3:
 	return jump_vel
 
 func swing():
-	var colliders = $Camera/SwingArea.get_overlapping_bodies()
+	var colliders = $Pivot/Camera/SwingArea.get_overlapping_bodies()
 	if colliders:
 		for collider in colliders:
 			if collider.is_in_group('Ball'):
@@ -78,3 +82,11 @@ func swing():
 				collider.direction = -aim.z
 				collider.direction.y = 0
 				collider.hit_count += 1
+
+func ladder():
+	var collider = ladder_seeker.get_collider()
+	if collider:
+		if collider.is_in_group('Ladder'):
+			climbing_ray.disabled = false
+			return
+	climbing_ray.disabled = true

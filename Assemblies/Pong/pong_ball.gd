@@ -5,8 +5,7 @@ var direction = Vector3.ZERO
 var hit_count : int = 0
 
 func _ready():
-	direction.x = randf_range(-1,1)
-	direction.z = randf_range(-1,1)
+	direction.z = 1
 	
 	direction = direction.normalized()
 	velocity = direction

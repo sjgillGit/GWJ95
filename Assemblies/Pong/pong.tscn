@@ -1,9 +1,24 @@
 [gd_scene format=3 uid="uid://bholljpi7243v"]
 
-[ext_resource type="Script" uid="uid://csm2aawhh14bs" path="res://Scripts/pong.gd" id="1_0oy6c"]
-[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/player.tscn" id="1_k7bn5"]
-[ext_resource type="Script" uid="uid://d8xgmsbm8itc" path="res://Scripts/pong_ball.gd" id="3_wp7ob"]
-[ext_resource type="Script" uid="uid://052ek5upvboj" path="res://Scripts/opponent.gd" id="4_d80cs"]
+[ext_resource type="Script" uid="uid://csm2aawhh14bs" path="res://Assemblies/Pong/pong.gd" id="1_0oy6c"]
+[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Assemblies/Pong/player.tscn" id="1_k7bn5"]
+[ext_resource type="Script" uid="uid://d8xgmsbm8itc" path="res://Assemblies/Pong/pong_ball.gd" id="3_wp7ob"]
+[ext_resource type="Script" uid="uid://052ek5upvboj" path="res://Assemblies/Pong/opponent.gd" id="4_d80cs"]
+
+[sub_resource type="Environment" id="Environment_dgfsc"]
+background_mode = 1
+background_color = Color(0.32610998, 0.37452808, 0.48802513, 1)
+ambient_light_color = Color(0.6269797, 0.8081303, 0.6130364, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mn82"]
+albedo_color = Color(0.70546865, 0.33601815, 0.52650756, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eiqrc"]
+material = SubResource("StandardMaterial3D_6mn82")
+size = Vector3(2.2729492, 5.294983, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6mn82"]
+size = Vector3(2.2729492, 5.294983, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgfsc"]
 albedo_color = Color(0.40069774, 0.40069774, 0.40069768, 1)
@@ -71,8 +86,46 @@ height = 3.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_eiqrc"]
 size = Vector3(1.9335022, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_dgfsc"]
+size = Vector3(30, 5, 2)
+
 [node name="Pong" type="Node3D" unique_id=1072218534]
 script = ExtResource("1_0oy6c")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1298229880]
+environment = SubResource("Environment_dgfsc")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2071807177]
+transform = Transform3D(0.97554845, -0.061919127, 0.21088226, -0.21978468, -0.27483767, 0.93603367, 0, -0.9594948, -0.28172636, 15.354788, 26.071346, 0)
+shadow_enabled = true
+
+[node name="Ladder" type="StaticBody3D" parent="." unique_id=1437809031 groups=["Ladder"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.606848, 0.120802164, 24.505238)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ladder" unique_id=1113433055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.165801, 0)
+mesh = SubResource("BoxMesh_eiqrc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ladder" unique_id=103193874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1581, 0)
+shape = SubResource("BoxShape3D_6mn82")
+
+[node name="Ladder2" type="StaticBody3D" parent="." unique_id=2064951925 groups=["Ladder"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9978, 0.120802164, 20.36089)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ladder2" unique_id=616268446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.165801, 0)
+mesh = SubResource("BoxMesh_eiqrc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ladder2" unique_id=121213353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1581, 0)
+shape = SubResource("BoxShape3D_6mn82")
 
 [node name="Geometry" type="StaticBody3D" parent="." unique_id=1932032402]
 collision_layer = 3
@@ -116,19 +169,16 @@ mesh = SubResource("PlaneMesh_eiqrc")
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12.018793, 3.8518524, 0)
 shape = SubResource("ConcavePolygonShape3D_y8rtu")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2071807177]
-transform = Transform3D(0.9755484, -0.061919127, 0.21088225, -0.21978466, -0.27483767, 0.9360336, 0, -0.9594948, -0.28172633, 15.354788, 26.071346, 0)
-shadow_enabled = true
-
 [node name="Player" parent="." unique_id=1919465100 instance=ExtResource("1_k7bn5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3835773, 5.793333, 22.325907)
 
 [node name="Ball" type="CharacterBody3D" parent="." unique_id=1764397876 groups=["Ball"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.210776, 11.946787)
-collision_layer = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.210776, 2.441412)
+collision_layer = 3
 collision_mask = 2
 axis_lock_linear_y = true
 script = ExtResource("3_wp7ob")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball" unique_id=334596211]
 shape = SubResource("SphereShape3D_d80cs")
@@ -157,3 +207,20 @@ collision_mask = 2
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Opponent/BatOpponent" unique_id=1921499227]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0079193115, 0, 0)
 shape = SubResource("BoxShape3D_eiqrc")
+
+[node name="PlayerGoal" type="Area3D" parent="." unique_id=1016134294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.185459, 29.085499)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerGoal" unique_id=1742245912]
+shape = SubResource("BoxShape3D_dgfsc")
+
+[node name="OpponentGoal" type="Area3D" parent="." unique_id=74989411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.185459, -28.513405)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OpponentGoal" unique_id=989190671]
+shape = SubResource("BoxShape3D_dgfsc")
+
+[connection signal="body_entered" from="PlayerGoal" to="." method="_on_player_goal_ball_entered"]
+[connection signal="body_entered" from="OpponentGoal" to="." method="_on_opponent_goal_ball_entered"]

@@ -2,8 +2,21 @@
 
 [ext_resource type="Script" uid="uid://ba4x8n2urtqcw" path="res://Scripts/bat_hunt_scene.gd" id="1_dvfwf"]
 [ext_resource type="PackedScene" uid="uid://i6pp6qa2q5lm" path="res://Scenes/Vampire Minigames/BatHunt/bat_hunting_spawner.tscn" id="2_drgef"]
-[ext_resource type="Script" uid="uid://4b0sm87sjwa5" path="res://Scenes/Vampire Minigames/BatHunt/camera_3d.gd" id="3_suec2"]
-[ext_resource type="Script" uid="uid://bisd2n0ucjje0" path="res://Scenes/Vampire Minigames/BatHunt/ray_cast_3d.gd" id="6_7kdhw"]
+[ext_resource type="Script" uid="uid://4b0sm87sjwa5" path="res://Scripts/camera_3d.gd" id="3_suec2"]
+
+[sub_resource type="GDScript" id="GDScript_drgef"]
+script/source = "extends RayCast3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="BatHuntScene" type="Node3D" unique_id=2146188156]
 script = ExtResource("1_dvfwf")
@@ -15,4 +28,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.30896)
 script = ExtResource("3_suec2")
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1676394993]
-script = ExtResource("6_7kdhw")
+script = SubResource("GDScript_drgef")

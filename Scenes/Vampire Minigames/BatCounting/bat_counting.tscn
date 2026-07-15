@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bacsgpd642uf1"]
+
+[ext_resource type="Script" uid="uid://bv4fiah67cv6o" path="res://Scripts/bat.gd" id="1_e2lgg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bi0c6"]
+
+[node name="Bat_Counting" type="Area3D" unique_id=1734351391]
+script = ExtResource("1_e2lgg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=134208231]
+shape = SubResource("BoxShape3D_nfy5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1672282657]
+mesh = SubResource("BoxMesh_bi0c6")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b5l8ustsf3uta"]
+
+[ext_resource type="Script" uid="uid://we8v44c8arbg" path="res://Scripts/coffinshuffle_scene.gd" id="1_0wcld"]
+[ext_resource type="PackedScene" uid="uid://cdoy58rksg703" path="res://Scenes/Vampire Minigames/CoffinShuffle/coffin.tscn" id="2_3f2ra"]
+
+[node name="CoffinshuffleScene" type="Node3D" unique_id=97865913]
+script = ExtResource("1_0wcld")
+
+[node name="Coffin1" parent="." unique_id=2005920206 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.607218, 0, 0)
+
+[node name="Coffin2" parent="." unique_id=1032728636 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.725367, 0, 0)
+
+[node name="Coffin3" parent="." unique_id=88547481 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.908405, 0, 0)
+
+[node name="Coffin4" parent="." unique_id=2093192007 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.96166, 0, 0)
+
+[node name="Coffin5" parent="." unique_id=594558524 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.539047, 0, 0)
+
+[node name="Coffin6" parent="." unique_id=552290496 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9866476, 0, 0)
+
+[node name="Coffin7" parent="." unique_id=542798014 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3846245, 0, 0)
+
+[node name="Coffin8" parent="." unique_id=1918490324 instance=ExtResource("2_3f2ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2642422, 0.037486076, 0)

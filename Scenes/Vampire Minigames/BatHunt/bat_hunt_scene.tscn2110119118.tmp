@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://do0qets42hg1j"]
+
+[ext_resource type="Script" uid="uid://ba4x8n2urtqcw" path="res://Scripts/bat_hunt_scene.gd" id="1_dvfwf"]
+[ext_resource type="PackedScene" uid="uid://i6pp6qa2q5lm" path="res://Scenes/Vampire Minigames/BatHunt/bat_hunting_spawner.tscn" id="2_drgef"]
+[ext_resource type="Script" uid="uid://4b0sm87sjwa5" path="res://Scenes/Vampire Minigames/BatHunt/camera_3d.gd" id="3_suec2"]
+[ext_resource type="Script" uid="uid://bisd2n0ucjje0" path="res://Scenes/Vampire Minigames/BatHunt/ray_cast_3d.gd" id="6_7kdhw"]
+
+[node name="BatHuntScene" type="Node3D" unique_id=2146188156]
+script = ExtResource("1_dvfwf")
+
+[node name="BatHuntingSpawner" parent="." unique_id=1425264841 instance=ExtResource("2_drgef")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.30896)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2121053994]
+script = ExtResource("3_suec2")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1676394993]
+script = ExtResource("6_7kdhw")

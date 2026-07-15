@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://hjob2n1nqedr"]
+
+[ext_resource type="PackedScene" uid="uid://dvhsy57vf5csq" path="res://Scenes/Vampire Minigames/BatCounting/counting_scene.tscn" id="2_eunhr"]
+[ext_resource type="PackedScene" uid="uid://b5l8ustsf3uta" path="res://Scenes/Vampire Minigames/CoffinShuffle/coffinshuffle_scene.tscn" id="2_qvhan"]
+[ext_resource type="PackedScene" uid="uid://q5hf7q5wg2ee" path="res://Scenes/Vampire Minigames/Doors/door_symbols_scene.tscn" id="3_k3v36"]
+[ext_resource type="PackedScene" uid="uid://do0qets42hg1j" path="res://Scenes/Vampire Minigames/BatHunt/bat_hunt_scene.tscn" id="4_eunhr"]
+
+[node name="Main" type="Node3D" unique_id=1657951162]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=502752227]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
+
+[node name="CoffinshuffleScene" parent="." unique_id=97865913 instance=ExtResource("2_qvhan")]
+visible = false
+
+[node name="CountingScene" parent="." unique_id=1386442738 instance=ExtResource("2_eunhr")]
+visible = false
+
+[node name="DoorSymbolsScene" parent="." unique_id=905517721 instance=ExtResource("3_k3v36")]
+visible = false
+
+[node name="BatHuntScene" parent="." unique_id=2146188156 instance=ExtResource("4_eunhr")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1891951393]

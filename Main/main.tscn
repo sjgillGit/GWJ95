@@ -8,7 +8,7 @@
 [node name="Main" type="Node3D" unique_id=1657951162]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=502752227]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 10, 0)
 
 [node name="CoffinshuffleScene" parent="." unique_id=97865913 instance=ExtResource("2_qvhan")]
 visible = false

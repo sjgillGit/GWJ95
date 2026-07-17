@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://duvsr1upxfa"]
 
-[ext_resource type="Script" uid="uid://c2uavwha017e0" path="res://Assemblies/Fishing/fishing.gd" id="1_3xeah"]
-[ext_resource type="Shader" uid="uid://dmj8ve6g25kqk" path="res://Assemblies/Fishing/water.gdshader" id="2_ousyk"]
+[ext_resource type="Script" uid="uid://c2uavwha017e0" path="res://Assemblies/Fishing/fishing.gd" id="1_twv7f"]
+[ext_resource type="Script" uid="uid://b5w1lmrniu1bt" path="res://Assemblies/Fishing/fish.gd" id="2_5cjye"]
+[ext_resource type="Shader" uid="uid://dmj8ve6g25kqk" path="res://Assemblies/Fishing/water.gdshader" id="2_r4suh"]
 
 [sub_resource type="Gradient" id="Gradient_ntx00"]
 
@@ -10,6 +11,9 @@ gradient = SubResource("Gradient_ntx00")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdg1l"]
 size = Vector2(17, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfmc2"]
+size = Vector2(22, 9)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_dgfsc"]
 
@@ -29,7 +33,7 @@ noise = SubResource("FastNoiseLite_6vad4")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dgfsc"]
-shader = ExtResource("2_ousyk")
+shader = ExtResource("2_r4suh")
 shader_parameter/alpha = 0.5
 shader_parameter/base_y = 0.12
 shader_parameter/waterNoise = SubResource("NoiseTexture2D_ntx00")
@@ -51,7 +55,7 @@ shader_parameter/wave_speed = 3.0
 size = Vector2(438, 132)
 
 [node name="Fishing" type="Node2D" unique_id=1367952027]
-script = ExtResource("1_3xeah")
+script = ExtResource("1_twv7f")
 
 [node name="Background" type="Control" parent="." unique_id=1964502618]
 custom_minimum_size = Vector2(640, 380)
@@ -106,6 +110,21 @@ offset_top = -9.0
 offset_right = 8.0
 offset_bottom = 9.0
 color = Color(1, 0.101960786, 1, 1)
+
+[node name="Fish" type="CharacterBody2D" parent="Background/Underwater" unique_id=1143773841]
+position = Vector2(387, 286)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("2_5cjye")
+
+[node name="ColorRect" type="ColorRect" parent="Background/Underwater/Fish" unique_id=1577350962]
+offset_right = 22.0
+offset_bottom = 9.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Underwater/Fish" unique_id=1396195377]
+position = Vector2(11, 4.5)
+shape = SubResource("RectangleShape2D_rfmc2")
 
 [node name="Map" type="Node2D" parent="Background" unique_id=1783330325]
 

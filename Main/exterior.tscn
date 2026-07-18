@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dc1uratbpkl5w"]
+
+[ext_resource type="PackedScene" uid="uid://d3gfrxhv5hedc" path="res://Assets/3D/exterior.blend" id="1_184wt"]
+[ext_resource type="Texture2D" uid="uid://ddwhcyjlaxjuj" path="res://Assets/3D/Textures/Exterior/OutsideGroundTex.png" id="2_4cnm3"]
+[ext_resource type="Texture2D" uid="uid://dx50flsdrefe6" path="res://Assets/3D/Textures/Exterior/OutdoorCorridorTex.png" id="3_s0kr0"]
+[ext_resource type="Texture2D" uid="uid://bsofdulteka8d" path="res://Assets/3D/Textures/Exterior/OutsideCliffTex.png" id="4_ifdq1"]
+[ext_resource type="Texture2D" uid="uid://cguo5o83jd6fk" path="res://Assets/3D/Textures/Exterior/OutsideDoorTex.png" id="5_ilake"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp01c"]
+albedo_texture = ExtResource("2_4cnm3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udjuc"]
+albedo_texture = ExtResource("3_s0kr0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pf70"]
+albedo_texture = ExtResource("4_ifdq1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcca6"]
+albedo_texture = ExtResource("5_ilake")
+
+[node name="exterior" unique_id=1651032666 instance=ExtResource("1_184wt")]
+
+[node name="Ground" parent="." index="0" unique_id=1587933283]
+material_override = SubResource("StandardMaterial3D_yp01c")
+
+[node name="Entrance" parent="." index="1" unique_id=208739717]
+material_override = SubResource("StandardMaterial3D_udjuc")
+
+[node name="Cliff" parent="." index="2" unique_id=1151426908]
+material_override = SubResource("StandardMaterial3D_2pf70")
+
+[node name="Skeleton3D" parent="ExteriorArmature" parent_id_path=PackedInt32Array(1242451297) index="0" unique_id=8920350]
+bones/1/rotation = Quaternion(0, 0, -0.7071068, 0.7071067)
+bones/2/position = Vector3(3.584734, 6.887458e-15, 4.2207054e-07)
+bones/2/rotation = Quaternion(2.5121475e-15, -1.06770145e-07, 0.7071069, 0.70710665)
+bones/3/position = Vector3(37.235268, 36.93695, 3.7342806)
+bones/3/rotation = Quaternion(0.30396348, 0.63844043, 0.63844043, 0.30396348)
+
+[node name="Door" parent="ExteriorArmature/Skeleton3D" index="0" unique_id=1102064446]
+material_override = SubResource("StandardMaterial3D_qcca6")
+
+[node name="Camera" parent="." index="4" unique_id=1591534270]
+fov = 30.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="6" unique_id=211968606]
+transform = Transform3D(0.6909295, 0.60858655, -0.39017808, 0, 0.53972346, 0.84184235, 0.7229222, -0.5816537, 0.37291086, 0, 62.333176, 68.37596)

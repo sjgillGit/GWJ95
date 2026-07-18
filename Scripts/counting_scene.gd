@@ -1,21 +1,36 @@
 extends Node3D
 
 @onready var spawner = $BatCounterSpawner
+@onready var coffin_1: CharacterBody3D = $Coffin1
+@onready var coffin_2: CharacterBody3D = $Coffin2
+@onready var coffin_3: CharacterBody3D = $Coffin3
+@onready var cutscene_manager: Node3D = $"../../CutsceneManager"
 
 var bat_count := 0
 var answer_options = []
 
 
 func _ready() -> void:
+	coffin_1.coffin_interacted.connect(_on_coffin_interacted)
+	coffin_2.coffin_interacted.connect(_on_coffin_interacted)
+	coffin_3.coffin_interacted.connect(_on_coffin_interacted)
+	coffin_1.hide()
+	coffin_2.hide()
+	coffin_3.hide()
+	coffin_1.position = Vector3(0,-20,0)
+	coffin_2.position = Vector3(0,-20,0)
+	coffin_3.position = Vector3(0,-20,0)
 	spawner.bat_spawned.connect(_on_bat_spawned)
 	spawner.spawning_finished.connect(_on_spawning_finished)
+	
+	
 
-	var total_bats = randi_range(10,20)
+	var total_bats = randi_range(10,20) if Manager.mode == "explore" else randi_range(15,25)
 
 	spawner.total_bats = total_bats
-	spawner.direction = "left"
-	spawner.spawn_delay = 0.4
+	spawner.spawn_delay = 0.4 if Manager.mode == "explore" else 0.3
 
+func start_game():
 	spawner.start_spawning()
 
 
@@ -24,10 +39,46 @@ func _on_bat_spawned():
 
 
 func _on_spawning_finished():
-	print("Finished spawning!")
-	print("Total bats:", bat_count)
 
 	generate_answers(bat_count)
 
 func generate_answers(bat_count):
-	pass
+	answer_options.clear()
+	var possible = []
+	for i in range(11):
+		i += 10 if Manager.mode == "explore" else 15
+		possible.append(i)
+	
+	answer_options.append(bat_count)
+	answer_options.append(possible.pick_random())
+	answer_options.append(possible.pick_random())
+	
+	answer_options.shuffle()
+	
+	coffin_1.answer = answer_options[0]
+	coffin_2.answer = answer_options[1]
+	coffin_3.answer = answer_options[2]
+	
+	coffin_1.show()
+	coffin_2.show()
+	coffin_3.show()
+	
+	coffin_1.position = Vector3(-5,0,0)
+	coffin_2.position = Vector3(0,0,0)
+	coffin_3.position = Vector3(5,0,0)
+
+	
+func _on_coffin_interacted(coffin):
+	if coffin.answer == bat_count:
+		print("Correct!")
+	else:
+		print("Wrong!")
+	
+	coffin_1.hide()
+	coffin_2.hide()
+	coffin_3.hide()
+	position = Vector3(0,-20,0)
+	if Manager.mode == "explore":
+		cutscene_manager.vampire_cutscene_coffinshuffle_1()
+	else:
+		cutscene_manager.vampire_cutscene_coffinshuffle_2()

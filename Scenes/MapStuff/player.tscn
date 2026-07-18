@@ -10,7 +10,7 @@ albedo_color = Color(0.21568628, 0.61960787, 1, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_nfy5u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nfy5u"]
-radius = 4.0241723
+radius = 2.0
 
 [node name="Player" type="CharacterBody3D" unique_id=2009462476 groups=["player"]]
 script = ExtResource("1_ryvvo")

@@ -3,7 +3,7 @@ extends Node3D
 signal bat_spawned
 signal spawning_finished
 
-@export var direction = "left"
+
 @export var bat_scene: PackedScene
 
 var total_bats := 12
@@ -35,9 +35,9 @@ func spawn_bat():
 	var bat = bat_scene.instantiate()
 	add_child(bat)
 
-	bat.facing = direction
-
-	if direction == "left":
-		bat.position = Vector3(20, randf_range(1.5, 4.0), randf_range(-2, 2))
+	bat.facing = "left" if Manager.mode == "explore" else ["left", "right"].pick_random()
+	
+	if bat.facing == "left":
+		bat.position = Vector3(15, randf_range(0, 5), randf_range(-3, 3))
 	else:
-		bat.position = Vector3(-20, randf_range(1.5, 4.0), randf_range(-2, 2))
+		bat.position = Vector3(-15, randf_range(0, 5), randf_range(-3, 3))

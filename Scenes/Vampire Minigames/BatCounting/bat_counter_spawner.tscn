@@ -6,5 +6,3 @@
 [node name="BatCounterSpawner" type="Node3D" unique_id=1425264841]
 script = ExtResource("1_osanq")
 bat_scene = ExtResource("2_3ugte")
-
-[node name="Bat" parent="." unique_id=1734351391 instance=ExtResource("2_3ugte")]

@@ -15,12 +15,13 @@ func _ready():
 
 
 func _process(delta):
-	if moving:
-		#print(target_position)
-		camera.global_position = camera.global_position.lerp(
-			target_position,
-			lerp_speed * delta
-		)
+	if Manager.setting == "map":
+		if moving:
+			#print(target_position)
+			camera.global_position = camera.global_position.lerp(
+				target_position,
+				lerp_speed * delta
+			)
 
 
 func _on_body_entered(body):

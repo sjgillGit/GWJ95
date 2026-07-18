@@ -22,6 +22,13 @@ var grav_vel: Vector3 # Gravity velocity
 var jump_vel: Vector3 # Jumping velocity
 
 var can_interact = true
+var stop_movement = false
+
+
+
+
+
+
 
 func _ready() -> void:
 	capture_mouse()
@@ -46,6 +53,9 @@ func release_mouse() -> void:
 	mouse_captured = false
 
 func _walk(delta):
+	if stop_movement:
+		walk_vel = walk_vel.move_toward(Vector3.ZERO, acceleration * delta)
+		return walk_vel
 	move_dir = Input.get_vector("Left", "Right", "Forward", "Back")
 	var direction = Vector3(
 		move_dir.x,
@@ -63,6 +73,21 @@ func _gravity(delta: float) -> Vector3:
 	return grav_vel
 
 func _jump(delta: float) -> Vector3:
+	#maybe remove
+	if Manager.setting == "map":
+		jumping = false
+		if is_on_floor():
+			jump_vel = Vector3.ZERO
+		return jump_vel
+		
+	if stop_movement:
+		jumping = false
+		if is_on_floor():
+			jump_vel = Vector3.ZERO
+		return jump_vel
+	
+	
+	
 	if jumping:
 		jumping = false
 		if is_on_floor(): 
@@ -84,7 +109,6 @@ func interact():
 	var target = get_closest_body()
 	print(target)
 	if target != null and target.has_method("interacted"):
-		print("yes")
 		target.interacted()
 	can_interact = false
 	await get_tree().create_timer(0.5).timeout

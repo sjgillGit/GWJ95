@@ -1,22 +1,12 @@
 extends Node3D
 
 var mode = "explore" #explore or escape
-@onready var VampireGame = $VampireGame
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print(VampireGame)
-	pass # Replace with function body.
+var setting = "map" #map or arena
 
+var vampire_key = false
+var skeleton_key = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var treasure_room_event = false
 
-func start():
-	pass
-func skeleton():
-	pass
-func vampire():
-	VampireGame.start()
-func treasure():
-	pass
+var vampire_escape_done = false
+var skeleton_escape_done = false

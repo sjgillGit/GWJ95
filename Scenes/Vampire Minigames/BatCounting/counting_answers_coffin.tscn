@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cun1ijuf3idgr"]
+
+[ext_resource type="Script" uid="uid://pjjdu6qasdxu" path="res://Scenes/Vampire Minigames/BatCounting/counting_answers_coffin.gd" id="1_3h081"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wbley"]
+
+[node name="Coffin" type="CharacterBody3D" unique_id=59392461]
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("1_3h081")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=974154445]
+shape = SubResource("BoxShape3D_nfy5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1736261843]
+mesh = SubResource("BoxMesh_wbley")

@@ -6,7 +6,12 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_bi0c6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atxx0"]
+albedo_color = Color(1, 0.02745098, 1, 1)
+
 [node name="Bat_Counting" type="Area3D" unique_id=1734351391]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_e2lgg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=134208231]
@@ -14,3 +19,4 @@ shape = SubResource("BoxShape3D_nfy5u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1672282657]
 mesh = SubResource("BoxMesh_bi0c6")
+surface_material_override/0 = SubResource("StandardMaterial3D_atxx0")

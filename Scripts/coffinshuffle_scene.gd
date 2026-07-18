@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var vampire_game: Node3D = $".."
+
 @onready var coffins = [
 	$Coffin1,
 	$Coffin2,
@@ -34,7 +36,7 @@ var coffin_positions_escape = [
 
 
 var coffin_slot = []
-var correct_coffin = 1
+var correct_coffin = randi_range(0,4) if Manager.mode == "explore" else randi_range(0,7)
 var coffin_tweens = []
 var swapping = false
 
@@ -42,15 +44,17 @@ var swapping = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	coffin_tweens.resize(8)
+	position = Vector3(0,-20,0)
 	for coffin in coffins:
 		coffin.coffin_interacted.connect(_on_coffin_interacted)
+		coffin.hide()
+		
 	
 	#hide()
-
-
-
-func start_game():
+func show_coffins():
 	show()
+	for coffin in coffins:
+		coffin.show()
 	if Manager.mode == "explore":
 		coffin_slot = [0, 1, 2, 3, 4]
 		correct_coffin = randi_range(0,4)
@@ -65,6 +69,9 @@ func start_game():
 		for i in range(8):
 			coffins[i].position = coffin_positions_escape[i]
 
+
+func start_game():
+	print(correct_coffin)
 	await swap_order()
 
 
@@ -115,10 +122,7 @@ func two_swap(a,b):
 	coffin_slot[b] = temp
 	
 	# swap correct coffin tracking
-	if correct_coffin == a:
-		correct_coffin = b
-	elif correct_coffin == b:
-		correct_coffin = a
+
 
 	update_coffins()
 	# animate movement
@@ -134,12 +138,7 @@ func three_swap(a,b,c):
 	coffin_slot[c] = temp
 
 	#if one of them was the correct coffin, then they will be swapped
-	if correct_coffin == a:
-		correct_coffin = b
-	elif correct_coffin == b:
-		correct_coffin = c
-	elif correct_coffin == c:
-		correct_coffin = a
+
 	
 	update_coffins()
 
@@ -181,3 +180,9 @@ func _on_coffin_interacted(coffin):
 		print("Correct!")
 	else:
 		print("Wrong!")
+	
+	
+	
+	position = Vector3(0,-20,0)
+	hide()
+	vampire_game.reverse_to_map_1()

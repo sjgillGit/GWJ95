@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bexh73aratnpf"]
+
+[ext_resource type="Script" uid="uid://c0dwgjxh4kujn" path="res://Scripts/room.gd" id="1_p3ojh"]
+[ext_resource type="PackedScene" uid="uid://de3osa8t4747i" path="res://Scenes/MapStuff/wall.tscn" id="2_fixaf"]
+
+[node name="Arena" type="Node3D" unique_id=1148387950]
+script = ExtResource("1_p3ojh")
+
+[node name="Wall" parent="." unique_id=1590827371 instance=ExtResource("2_fixaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="Wall2" parent="." unique_id=1968427091 instance=ExtResource("2_fixaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="Wall3" parent="." unique_id=1978643613 instance=ExtResource("2_fixaf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, 0)
+
+[node name="Wall4" parent="." unique_id=756191704 instance=ExtResource("2_fixaf")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, 0)

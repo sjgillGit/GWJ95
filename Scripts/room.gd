@@ -3,6 +3,8 @@ extends Node3D
 @export var special_room = "false"
 @export var target_position = Vector3(0,0,0)
 @onready var VampireGame: Node3D = $"../../../VampireGame"
+@onready var cutscene_manager: Node3D = $"../../../CutsceneManager"
+@onready var player: Tetris_player = $"../../../Player"
 
 
 
@@ -26,11 +28,19 @@ func _process(delta: float) -> void:
 func detect_special():
 	if special_room != "false":
 		if special_room == "start":
-			VampireGame.start()
+			pass
 		elif special_room == "skeleton":
-			Manager.start()
+			if Manager.skeleton_key == false:
+				cutscene_manager.skeleton_cutscene_explore()
+			elif Manager.skeleton_escape_done == false:
+				cutscene_manager.skeleton_cutscene_escape()
 		elif special_room == "vampire":
-			VampireGame.start()
-		elif special_room == "treasure":				
-			Manager.start()
+			if Manager.vampire_key == false:
+				cutscene_manager.vampire_cutscene_explore()
+			elif Manager.vampire_escape_done == false:
+				cutscene_manager.vampire_cutscene_escape()
+
+			
+		elif special_room == "treasure":
+			pass
 				

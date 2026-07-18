@@ -6,6 +6,9 @@ class_name Tetris_player extends CharacterBody3D
 
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 5.2 # m
 
+@onready var area = $Area3D
+
+
 var jumping: bool = false
 var mouse_captured: bool = false
 
@@ -18,6 +21,7 @@ var walk_vel: Vector3 # Walking velocity
 var grav_vel: Vector3 # Gravity velocity 
 var jump_vel: Vector3 # Jumping velocity
 
+var can_interact = true
 
 func _ready() -> void:
 	capture_mouse()
@@ -26,7 +30,9 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Jump"): jumping = true
 	velocity = _walk(delta) + _gravity(delta) + _jump(delta)
-	push(delta)
+	#push(delta)
+	if Input.is_action_pressed("Interact") and can_interact == true: 
+		interact()
 	if Input.is_action_pressed("ui_cancel"): 
 		release_mouse()
 	move_and_slide()
@@ -73,11 +79,38 @@ func _jump(delta: float) -> Vector3:
 		jump_vel = jump_vel.move_toward(Vector3(0,-15,0), gravity * 10 * delta)
 	return jump_vel
 
-func push(delta):
-	if !Input.is_action_pressed('Interact'): return
 
-	$GrabRay.target_position = Vector3(0, 0, move_dir.x*2)
-	var collider = $GrabRay.get_collider()
-	var floor_collider = $FloorCollider.get_collider()
-	if (collider and collider is RigidBody3D) and (floor_collider and floor_collider != collider):
-		collider.apply_central_force(Vector3(0, 0, move_dir.x)*35000*delta)
+func interact():
+	var target = get_closest_body()
+	print(target)
+	if target != null and target.has_method("interacted"):
+		print("yes")
+		target.interacted()
+	can_interact = false
+	await get_tree().create_timer(0.5).timeout
+	can_interact = true
+
+
+func get_closest_body():
+	var objects = area.get_overlapping_bodies()
+	var closest_body = null
+	var closest_distance = INF
+	
+	for body in objects:
+		var distance = global_position.distance_to(body.global_position)
+		
+		if distance < closest_distance:
+			closest_distance = distance
+			closest_body = body
+	
+	return closest_body
+
+
+#func push(delta):
+	#if !Input.is_action_pressed('Interact'): return
+	#
+	#$GrabRay.target_position = Vector3(0, 0, move_dir.x*2)
+	#var collider = $GrabRay.get_collider()
+	#var floor_collider = $FloorCollider.get_collider()
+	#if (collider and collider is RigidBody3D) and (floor_collider and floor_collider != collider):
+		#collider.apply_central_force(Vector3(0, 0, move_dir.x)*35000*delta)

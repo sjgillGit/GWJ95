@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		door_entered.emit(self)
+
+func open():
+		pass

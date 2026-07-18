@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://q5hf7q5wg2ee"]
 
 [ext_resource type="Script" uid="uid://dci81tetjcno5" path="res://Scripts/door_symbols_scene.gd" id="1_j4bpp"]
-[ext_resource type="PackedScene" uid="uid://bvlirx2ngtcfk" path="res://Scenes/Vampire Minigames/Doors/door.tscn" id="2_x7ml1"]
+[ext_resource type="PackedScene" uid="uid://bvlirx2ngtcfk" path="res://Scenes/Vampire Minigames/DoorsVampire/door_vampire_symbols.tscn" id="2_x7ml1"]
 
 [node name="DoorSymbolsScene" type="Node3D" unique_id=905517721]
 script = ExtResource("1_j4bpp")

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://7ihej8l17pst"]
 
-[ext_resource type="Script" uid="uid://c0dwgjxh4kujn" path="res://room.gd" id="1_61bxy"]
-[ext_resource type="PackedScene" uid="uid://deaii00cdf6p5" path="res://wall.tscn" id="1_u3qo1"]
-[ext_resource type="PackedScene" uid="uid://bvulo4ykca8qc" path="res://Scenes/Room_detection.tscn" id="2_61bxy"]
+[ext_resource type="Script" uid="uid://c0dwgjxh4kujn" path="res://Scripts/room.gd" id="1_61bxy"]
+[ext_resource type="PackedScene" uid="uid://deaii00cdf6p5" path="res://Scenes/MapStuff/wall_door.tscn" id="1_u3qo1"]
+[ext_resource type="PackedScene" uid="uid://bvulo4ykca8qc" path="res://Scenes/MapStuff/Room_detection.tscn" id="2_61bxy"]
 
 [node name="Room" type="Node3D" unique_id=1148387950]
 script = ExtResource("1_61bxy")

@@ -4,7 +4,7 @@ extends Node3D
 @export var target_position = Vector3(0,0,0)
 @onready var VampireGame: Node3D = $"../../../VampireGame"
 @onready var cutscene_manager: Node3D = $"../../../CutsceneManager"
-@onready var player: Tetris_player = $"../../../Player"
+@onready var player = $"../../../Player"
 
 
 

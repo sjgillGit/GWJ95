@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var vampire_game: Node3D = $"../VampireGame"
-@onready var player: Tetris_player = $"../Player"
+@onready var player = $"../Player"
 @onready var slime_spawner_1: Node3D = $"../Map/Rooms/Treasure Room/SlimeSpawner1"
 
 var stop_movement = false

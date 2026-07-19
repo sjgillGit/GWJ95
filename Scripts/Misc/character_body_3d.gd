@@ -1,4 +1,4 @@
-class_name Tetris_player extends CharacterBody3D
+extends CharacterBody3D
 
 @export_category("Player")
 @export_range(1, 35, 1) var speed: float = 20 # m/s

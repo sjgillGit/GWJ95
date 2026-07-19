@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dc1uratbpkl5w"]
 
-[ext_resource type="PackedScene" uid="uid://d3gfrxhv5hedc" path="res://Assets/3D/exterior.blend" id="1_184wt"]
-[ext_resource type="Texture2D" uid="uid://ddwhcyjlaxjuj" path="res://Assets/3D/Textures/Exterior/OutsideGroundTex.png" id="2_4cnm3"]
-[ext_resource type="Texture2D" uid="uid://dx50flsdrefe6" path="res://Assets/3D/Textures/Exterior/OutdoorCorridorTex.png" id="3_s0kr0"]
-[ext_resource type="Texture2D" uid="uid://bsofdulteka8d" path="res://Assets/3D/Textures/Exterior/OutsideCliffTex.png" id="4_ifdq1"]
-[ext_resource type="Texture2D" uid="uid://cguo5o83jd6fk" path="res://Assets/3D/Textures/Exterior/OutsideDoorTex.png" id="5_ilake"]
+[ext_resource type="PackedScene" uid="uid://d3gfrxhv5hedc" path="res://Assets/blend/exterior.blend" id="1_184wt"]
+[ext_resource type="Texture2D" uid="uid://ddwhcyjlaxjuj" path="res://Assets/blend/Textures/Exterior/OutsideGroundTex.png" id="2_4cnm3"]
+[ext_resource type="Texture2D" uid="uid://dx50flsdrefe6" path="res://Assets/blend/Textures/Exterior/OutdoorCorridorTex.png" id="3_s0kr0"]
+[ext_resource type="Texture2D" uid="uid://bsofdulteka8d" path="res://Assets/blend/Textures/Exterior/OutsideCliffTex.png" id="4_ifdq1"]
+[ext_resource type="Texture2D" uid="uid://cguo5o83jd6fk" path="res://Assets/blend/Textures/Exterior/OutsideDoorTex.png" id="5_ilake"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yp01c"]
 albedo_texture = ExtResource("2_4cnm3")

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://m3i8tugm2553"]
+
+[ext_resource type="Script" uid="uid://djceth510id64" path="res://Scripts/MapStuff/slime.gd" id="1_2ny4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
+size = Vector3(30, 15, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfy5u"]
+size = Vector3(30, 15, 30)
+
+[node name="Slime" type="CharacterBody3D" unique_id=589232668]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2ny4t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1972202114]
+shape = SubResource("BoxShape3D_nfy5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1461878725]
+mesh = SubResource("BoxMesh_nfy5u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=14689237]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1141353183]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1175777982]
+shape = SubResource("BoxShape3D_nfy5u")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

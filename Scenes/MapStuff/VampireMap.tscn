@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bv0ter88cwt4a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nfy5u"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_nfy5u"]
+
+[node name="Vampire" type="CharacterBody3D" unique_id=141208190]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=215551499]
+shape = SubResource("CapsuleShape3D_nfy5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1675849444]
+mesh = SubResource("CapsuleMesh_nfy5u")

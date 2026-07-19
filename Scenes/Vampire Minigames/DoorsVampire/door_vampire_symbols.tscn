@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bvlirx2ngtcfk"]
+
+[ext_resource type="Script" uid="uid://bv4sy8j5b06qw" path="res://Scripts/VampireMinigames/door.gd" id="1_jvx3h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bi0c6"]
+
+[node name="Door" type="Area3D" unique_id=100549406]
+script = ExtResource("1_jvx3h")
+symbol = null
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=564975383]
+shape = SubResource("BoxShape3D_nfy5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=877827127]
+mesh = SubResource("BoxMesh_bi0c6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

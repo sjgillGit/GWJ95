@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://pwewo8405340"]
+
+[ext_resource type="Script" uid="uid://vhc2t4m3lltt" path="res://duo_game.gd" id="1_7i2rd"]
+[ext_resource type="PackedScene" uid="uid://do0qets42hg1j" path="res://Scenes/Vampire Minigames/BatHunt/bat_hunt_scene.tscn" id="1_uvvd7"]
+[ext_resource type="PackedScene" uid="uid://bholljpi7243v" path="res://Scenes/Skeleton Minigames/Pong/pong.tscn" id="2_bu72b"]
+[ext_resource type="PackedScene" uid="uid://bv0ter88cwt4a" path="res://Scenes/MapStuff/VampireMap.tscn" id="5_ku2vt"]
+
+[node name="DuoGame" type="Node3D" unique_id=1762962386]
+script = ExtResource("1_7i2rd")
+
+[node name="BatHuntScene" parent="." unique_id=2146188156 instance=ExtResource("1_uvvd7")]
+
+[node name="Pong" parent="." unique_id=1072218534 instance=ExtResource("2_bu72b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 379.5681, 0, 0)
+
+[node name="Vampire" parent="." unique_id=141208190 instance=ExtResource("5_ku2vt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

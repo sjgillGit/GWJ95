@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://kjil717kf3up"]
+
+[ext_resource type="Script" uid="uid://wnhcad8b1nvp" path="res://Scripts/MapStuff/treasure.gd" id="1_dubxd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bi0c6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nfy5u"]
+
+[node name="Treasure" type="StaticBody3D" unique_id=617177906]
+script = ExtResource("1_dubxd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1093586930]
+shape = SubResource("BoxShape3D_bi0c6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=777019717]
+mesh = SubResource("BoxMesh_nfy5u")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dia34lonxbh5s"]
+
+[ext_resource type="PackedScene" uid="uid://lqxiw5yc4s3t" path="res://Scenes/Skeleton Minigames/Tetris/tetris_main.tscn" id="1_g4x8i"]
+[ext_resource type="Script" uid="uid://bj4sk0juihs32" path="res://Scenes/skeleton_game.gd" id="1_mwh81"]
+[ext_resource type="PackedScene" uid="uid://bholljpi7243v" path="res://Scenes/Skeleton Minigames/Pong/pong.tscn" id="2_mwh81"]
+[ext_resource type="PackedScene" uid="uid://duvsr1upxfa" path="res://Scenes/Skeleton Minigames/Fishing/fishing.tscn" id="3_806um"]
+
+[node name="SkeletonGame" type="Node3D" unique_id=2053369122]
+script = ExtResource("1_mwh81")
+
+[node name="Tetris" parent="." unique_id=2003847978 node_paths=PackedStringArray("tutorials") instance=ExtResource("1_g4x8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 947.0433, 0, 0)
+tutorials = {
+"TutorialAD": NodePath("TutorialAD"),
+"TutorialJump": NodePath("TutorialJump"),
+"TutorialPUSH": NodePath("TutorialPUSH"),
+"TutorialSHIFT": NodePath("TutorialSHIFT")
+}
+
+[node name="Pong" parent="." unique_id=1072218534 instance=ExtResource("2_mwh81")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 379.5681, 0, 0)
+
+[node name="Fishing" parent="." unique_id=1367952027 instance=ExtResource("3_806um")]
+visible = false

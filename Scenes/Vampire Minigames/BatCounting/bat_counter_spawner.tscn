@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d1vbeoxth8pi5"]
+
+[ext_resource type="Script" uid="uid://cff37mrme63df" path="res://Scripts/VampireMinigames/bat_counter_spawner.gd" id="1_osanq"]
+[ext_resource type="PackedScene" uid="uid://bacsgpd642uf1" path="res://Scenes/Vampire Minigames/BatCounting/bat_counting.tscn" id="2_3ugte"]
+
+[node name="BatCounterSpawner" type="Node3D" unique_id=1425264841]
+script = ExtResource("1_osanq")
+bat_scene = ExtResource("2_3ugte")

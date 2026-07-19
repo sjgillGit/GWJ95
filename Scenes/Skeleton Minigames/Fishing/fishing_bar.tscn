@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://kxpcucd6crao"]
+
+[ext_resource type="Script" uid="uid://bnph1kg48wad7" path="res://Scripts/SkeletonMinigames/fishing_bar.gd" id="1_2h07c"]
+[ext_resource type="Texture2D" uid="uid://beh1kdujgp412" path="res://icon.svg" id="2_8byrv"]
+
+[node name="FishingBar" type="Node2D" unique_id=1655916083]
+script = ExtResource("1_2h07c")
+
+[node name="Bar" type="Sprite2D" parent="." unique_id=108089797]
+scale = Vector2(1, 10)
+texture = ExtResource("2_8byrv")
+
+[node name="AreaofGood" type="Sprite2D" parent="." unique_id=1312803119]
+position = Vector2(2, 1)
+scale = Vector2(1, 1.5)
+texture = ExtResource("2_8byrv")
+
+[node name="MovingArrow" type="Sprite2D" parent="." unique_id=376168159]
+position = Vector2(-201, 603)
+rotation = 0.30717796
+skew = 0.9215338
+texture = ExtResource("2_8byrv")

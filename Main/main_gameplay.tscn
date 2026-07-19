@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://hjob2n1nqedr"]
+
+[ext_resource type="Script" uid="uid://cyca5b1j0b5wf" path="res://Main/camera_3d_map.gd" id="1_k3v36"]
+[ext_resource type="PackedScene" uid="uid://bv0ter88cwt4a" path="res://Scenes/MapStuff/VampireMap.tscn" id="1_liyct"]
+[ext_resource type="PackedScene" uid="uid://r6nii4tri8wa" path="res://Scenes/MapStuff/player.tscn" id="2_2w1kt"]
+[ext_resource type="PackedScene" uid="uid://c3i1mr2v1nh1c" path="res://Scenes/Vampire Minigames/vampire_game.tscn" id="3_qvhan"]
+[ext_resource type="Script" uid="uid://bad30tlanjwtl" path="res://Main/cutscene_manager.gd" id="4_eunhr"]
+[ext_resource type="PackedScene" uid="uid://dhrscxqsfniwk" path="res://Scenes/MapStuff/map.tscn" id="5_k3v36"]
+[ext_resource type="PackedScene" uid="uid://dia34lonxbh5s" path="res://Scenes/skeleton_game.tscn" id="6_47jfk"]
+[ext_resource type="PackedScene" uid="uid://pwewo8405340" path="res://duo_game.tscn" id="7_3154k"]
+[ext_resource type="PackedScene" uid="uid://kjil717kf3up" path="res://Scenes/MapStuff/treasure.tscn" id="7_ib3t1"]
+[ext_resource type="Texture2D" uid="uid://vum0gxb5h8b6" path="res://BlackRectangle.png" id="8_jpb7l"]
+[ext_resource type="PackedScene" uid="uid://bil7ydbial81w" path="res://textbox.tscn" id="8_yxi3x"]
+[ext_resource type="Script" uid="uid://cnqgxldoggaf4" path="res://Main/win_lost_manager.gd" id="11_e27ys"]
+
+[node name="Main_Gameplay" type="Node3D" unique_id=1657951162]
+
+[node name="Vampire" parent="." unique_id=141208190 instance=ExtResource("1_liyct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.890877, 0, -31.821169)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2078575428]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659259, 0, -0.9659259, 0.25881907, 0, 20, -30)
+script = ExtResource("1_k3v36")
+
+[node name="Map" parent="." unique_id=1117956034 instance=ExtResource("5_k3v36")]
+script = null
+
+[node name="Player" parent="." unique_id=2009462476 instance=ExtResource("2_2w1kt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1, 0)
+speed = null
+acceleration = null
+jump_height = null
+
+[node name="VampireGame" parent="." unique_id=1119769538 instance=ExtResource("3_qvhan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 150)
+
+[node name="SkeletonGame" parent="." unique_id=2053369122 instance=ExtResource("6_47jfk")]
+
+[node name="DuoGame" parent="." unique_id=1762962386 instance=ExtResource("7_3154k")]
+
+[node name="CutsceneManager" type="Node3D" parent="." unique_id=1150411273]
+script = ExtResource("4_eunhr")
+
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneManager" unique_id=1657890743]
+position = Vector2(605, 1081)
+scale = Vector2(3.060219, 1.1836159)
+texture = ExtResource("8_jpb7l")
+
+[node name="Textbox" parent="." unique_id=1714039778 instance=ExtResource("8_yxi3x")]
+position = Vector2(-30, -43)
+
+[node name="Treasure" parent="." unique_id=617177906 instance=ExtResource("7_ib3t1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.81523, 0, 0)
+collision_layer = 4
+collision_mask = 4
+
+[node name="Skeleton" parent="." unique_id=1883960780 instance=ExtResource("1_liyct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.890877, 0, 28.485289)
+
+[node name="WinLostManager" type="Node3D" parent="." unique_id=972276927]
+script = ExtResource("11_e27ys")

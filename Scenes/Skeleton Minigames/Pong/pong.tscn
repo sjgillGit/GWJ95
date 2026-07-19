@@ -13,13 +13,6 @@ background_mode = 1
 background_color = Color(0.32610998, 0.37452808, 0.48802513, 1)
 ambient_light_color = Color(0.6269797, 0.8081303, 0.6130364, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6mn82"]
-albedo_color = Color(0.70546865, 0.33601815, 0.52650756, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_eiqrc"]
-material = SubResource("StandardMaterial3D_6mn82")
-size = Vector3(2.2729492, 5.294983, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_6mn82"]
 size = Vector3(2.2729492, 5.294983, 1)
 
@@ -117,13 +110,12 @@ collision_layer = 4
 collision_mask = 4
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ladder" unique_id=1113433055]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.165801, 0)
-mesh = SubResource("BoxMesh_eiqrc")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ladder" unique_id=103193874]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1581, 0)
 shape = SubResource("BoxShape3D_6mn82")
+
+[node name="ladder3" parent="Ladder" unique_id=905594619 instance=ExtResource("1_6a20d")]
+transform = Transform3D(7.1495633, 0, 0, 0, 4.719984, 0, 0, 0, 4.719984, 0, 0, 0.5534573)
 
 [node name="Ladder2" type="StaticBody3D" parent="." unique_id=2064951925 groups=["Ladder"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9978, 0.120802164, 20.36089)
@@ -135,7 +127,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1581, 0)
 shape = SubResource("BoxShape3D_6mn82")
 
-[node name="ladder2" parent="Ladder2" unique_id=905594619 instance=ExtResource("1_6a20d")]
+[node name="ladder2" parent="Ladder2" unique_id=850957247 instance=ExtResource("1_6a20d")]
 transform = Transform3D(7.1495633, 0, 0, 0, 4.719984, 0, 0, 0, 4.719984, 0.031243801, 0.06734525, -0.5250015)
 
 [node name="Geometry" type="StaticBody3D" parent="." unique_id=1932032402]

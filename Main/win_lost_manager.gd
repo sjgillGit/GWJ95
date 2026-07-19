@@ -2,7 +2,9 @@ extends Node3D
 
 @onready var player = $"../Player"
 @onready var first_spawner: Node3D = $"../Map/Rooms/Treasure Room/SlimeSpawner1"
-
+@onready var menu = $"."
+@onready var main_gameplay: Node3D = $".."
+@onready var camera_3d: Camera3D = $"ExteriorArmature/Skeleton3D/BoneAttachment3D/Camera3D"
 func _ready():
 	for spawner in get_tree().get_nodes_in_group("slime_spawners"):
 		spawner.escape_reset.connect(_on_escape_reset)
@@ -46,3 +48,8 @@ func lose():
 		player.position = Vector3(-40,1,0)
 	else:
 		set_variables_escape()
+
+func win():
+	player.stop_movement = true
+	main_gameplay.hide()
+	menu.show()

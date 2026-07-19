@@ -4,7 +4,7 @@ extends Node3D
 var water_timer : float = -15.0 # before water starts rising
 var time_to_escape : float = 60.0 # before water reaches the top
 var lost := false
-var blocks_path : String = 'res://Assemblies/Tetris/blocks'
+var blocks_path : String = "res://Scenes/Skeleton Minigames/Tetris/blocks/"
 var blocks  := []
 var blocks_queue := []
 var block_held : RigidBody3D = null
@@ -21,11 +21,16 @@ var new_block_dropped := false
 
 @onready var tetris_player: Tetris_player = $TetrisPlayer
 @onready var spawn_point: Marker3D = $Geometry/SpawnPoint
-@onready var timer_aiming = Global.create_timer(3, true)
-@onready var timer_spawn = Global.create_timer(6, true)
+@onready var timer_aiming = Global.create_timer(2, true)
+@onready var timer_spawn = Global.create_timer(4, true)
 
 @export var moving_force : float = 40000
 @export var tutorials : Dictionary[String, RigidBody3D]
+
+@onready var skeleton_game: Node3D = $".."
+@onready var camera_3d: Camera3D = $Camera3D
+@onready var cutscene_manager: Node3D = $"../../CutsceneManager"
+
 
 func _ready() -> void:
 	$Water.mesh.material.set_shader_parameter('dissolve_height', -1.0)
@@ -34,6 +39,20 @@ func _ready() -> void:
 	get_window().grab_focus()
 	blocks = Global.get_all_resources_in_folder(blocks_path)
 	reshuffle_blocks()
+
+
+func start_game():
+	lost = false
+	water_timer = -15.0
+	camera_3d.make_current()
+	# Difficulty
+	if Manager.mode == "explore":
+		hardcore = false
+		time_to_escape = 90.0
+	else: # escape
+		hardcore = true
+		time_to_escape = 60.0
+
 	spawn_block()
 
 func _physics_process(delta: float) -> void:
@@ -65,18 +84,27 @@ func drop_block():
 		block_prev.angular_damp = 5.0
 	block_held.axis_lock_linear_y = false
 	block_held.angular_damp = 1.0
-	block_held.apply_central_force(Vector3.DOWN*15000)
+	block_held.apply_central_force(Vector3.DOWN*40000)
+	block_held.gravity_scale = 3.0
+	
+	block_held.linear_velocity.z *= 0.5
+
+	
 	block_prev = block_held
 	block_held = null
 
 func aim(delta):
-	if !block_held: return
-	
+	if !block_held:
+		return
+
 	var target = Vector3(global_position.x, global_position.y, tetris_player.global_position.z)
 	var direction = block_held.global_position.direction_to(target).normalized()
-	var distance = sqrt(block_held.global_position.distance_to(target))
-	block_held.apply_central_force(direction*moving_force*distance*delta)
+	var distance = min(block_held.global_position.distance_to(target), 8.0)
 
+	block_held.apply_central_force(direction * moving_force * distance * delta * 3)
+
+
+			
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_SHIFT and new_block_dropped:
@@ -116,5 +144,16 @@ func level_fail():
 
 #TODO: logic for level victory
 func _on_escape_body_entered(body: Node3D) -> void:
-	if body.is_in_group('Player'):
-		print('Victory')
+	if lost:
+		return
+
+	if body.is_in_group("Player"):
+		lost = true
+
+		timer_spawn.stop()
+		timer_aiming.stop()
+
+		print("Victory")
+
+		hide()
+		cutscene_manager.skeleton_cutscene_fishing_1()

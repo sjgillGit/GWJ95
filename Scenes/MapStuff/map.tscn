@@ -34,6 +34,7 @@ target_position = Vector3(0, 0, -30)
 
 [node name="Room2" parent="Rooms" unique_id=1148387950 instance=ExtResource("1_myvm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -30)
+special_room = "vampire"
 target_position = Vector3(30, 0, -30)
 
 [node name="SlimeSpawner5" parent="Rooms/Room2" unique_id=1481365086 node_paths=PackedStringArray("next_spawner") instance=ExtResource("2_clvm1")]
@@ -54,6 +55,7 @@ next_spawner = NodePath("../../Room2/SlimeSpawner5")
 
 [node name="Room4" parent="Rooms" unique_id=139697657 instance=ExtResource("1_myvm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, -30)
+special_room = "duo"
 target_position = Vector3(90, 0, -30)
 
 [node name="SlimeSpawner3" parent="Rooms/Room4" unique_id=2013076038 node_paths=PackedStringArray("next_spawner") instance=ExtResource("2_clvm1")]
@@ -73,7 +75,6 @@ next_spawner = NodePath("../../Start/SlimeSpawner12")
 
 [node name="Room6" parent="Rooms" unique_id=772901110 instance=ExtResource("1_myvm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 0)
-special_room = "vampire"
 target_position = Vector3(30, 0, 0)
 
 [node name="SlimeSpawner6" parent="Rooms/Room6" unique_id=1641423903 node_paths=PackedStringArray("next_spawner") instance=ExtResource("2_clvm1")]
@@ -114,6 +115,7 @@ next_spawner = NodePath("../../Room5/SlimeSpawner11")
 
 [node name="Room10" parent="Rooms" unique_id=1751366672 instance=ExtResource("1_myvm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 30)
+special_room = "skeleton"
 target_position = Vector3(30, 0, 30)
 
 [node name="SlimeSpawner9" parent="Rooms/Room10" unique_id=1387442049 node_paths=PackedStringArray("next_spawner") instance=ExtResource("2_clvm1")]

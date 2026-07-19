@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3i1mr2v1nh1c" path="res://Scenes/Vampire Minigames/vampire_game.tscn" id="3_qvhan"]
 [ext_resource type="Script" uid="uid://bad30tlanjwtl" path="res://Main/cutscene_manager.gd" id="4_eunhr"]
 [ext_resource type="PackedScene" uid="uid://dhrscxqsfniwk" path="res://Scenes/MapStuff/map.tscn" id="5_k3v36"]
+[ext_resource type="PackedScene" uid="uid://dia34lonxbh5s" path="res://Scenes/skeleton_game.tscn" id="6_47jfk"]
 [ext_resource type="PackedScene" uid="uid://kjil717kf3up" path="res://Scenes/MapStuff/treasure.tscn" id="7_ib3t1"]
 
 [node name="Main_Gameplay" type="Node3D" unique_id=1657951162]
@@ -27,6 +28,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055496216, 1, 0)
 
 [node name="VampireGame" parent="." unique_id=1119769538 instance=ExtResource("3_qvhan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 150)
+
+[node name="SkeletonGame" parent="." unique_id=2053369122 instance=ExtResource("6_47jfk")]
 
 [node name="CutsceneManager" type="Node3D" parent="." unique_id=1150411273]
 script = ExtResource("4_eunhr")

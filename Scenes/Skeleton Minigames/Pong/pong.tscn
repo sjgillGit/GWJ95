@@ -1,9 +1,6 @@
 [gd_scene format=3 uid="uid://bholljpi7243v"]
 
-[ext_resource type="Script" uid="uid://csm2aawhh14bs" path="res://Scenes/Skeleton Minigames/Pong/pong.gd" id="1_0oy6c"]
 [ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Skeleton Minigames/Pong/player.tscn" id="1_k7bn5"]
-[ext_resource type="Script" uid="uid://d8xgmsbm8itc" path="res://Scenes/Skeleton Minigames/Pong/pong_ball.gd" id="3_wp7ob"]
-[ext_resource type="Script" uid="uid://052ek5upvboj" path="res://Scenes/Skeleton Minigames/Pong/opponent.gd" id="4_d80cs"]
 
 [sub_resource type="Environment" id="Environment_dgfsc"]
 background_mode = 1
@@ -67,16 +64,6 @@ albedo_color = Color(0.39992413, 0.6875841, 0.36912405, 1)
 material = SubResource("StandardMaterial3D_y8rtu")
 radius = 1.0
 
-[sub_resource type="Curve" id="Curve_da0ry"]
-_limits = [0.0, 1.0, 0.0, 25.0]
-_data = [Vector2(0, 0.08988774), 0.0, 0.0, 0, 0, Vector2(1.75, 1), 0.0, 0.0, 0, 0, Vector2(12.5, 0.5), 0.0, 0.0, 0, 0, Vector2(25, 1), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Curve" id="Curve_y8rtu"]
-_limits = [0.5, 1.0, 0.0, 25.0]
-_data = [Vector2(0, 0.5112359), 0.0, 0.0, 0, 0, Vector2(1.875, 0.735955), 0.0, 0.0, 0, 0, Vector2(25, 1), -0.005762027, 0.0, 0, 0]
-point_count = 3
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_eiqrc"]
 height = 3.0
 
@@ -90,7 +77,6 @@ size = Vector3(1.9335022, 1, 1)
 size = Vector3(30, 5, 2)
 
 [node name="Pong" type="Node3D" unique_id=1072218534]
-script = ExtResource("1_0oy6c")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1298229880]
 environment = SubResource("Environment_dgfsc")
@@ -169,15 +155,11 @@ mesh = SubResource("PlaneMesh_eiqrc")
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -12.018793, 3.8518524, 0)
 shape = SubResource("ConcavePolygonShape3D_y8rtu")
 
-[node name="Player" parent="." unique_id=1919465100 instance=ExtResource("1_k7bn5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3835773, 5.793333, 22.325907)
-
 [node name="Ball" type="CharacterBody3D" parent="." unique_id=1764397876 groups=["Ball"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.210776, 2.441412)
 collision_layer = 3
 collision_mask = 2
 axis_lock_linear_y = true
-script = ExtResource("3_wp7ob")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ball" unique_id=334596211]
@@ -189,10 +171,6 @@ mesh = SubResource("CapsuleMesh_dgfsc")
 [node name="Opponent" type="CharacterBody3D" parent="." unique_id=682218848]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7594604, -21.769676)
 collision_layer = 3
-script = ExtResource("4_d80cs")
-acceleration_curve = SubResource("Curve_da0ry")
-acceleration = 40.0
-max_speed_modifier = SubResource("Curve_y8rtu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Opponent" unique_id=547915637]
 mesh = SubResource("CapsuleMesh_eiqrc")
@@ -221,6 +199,8 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OpponentGoal" unique_id=989190671]
 shape = SubResource("BoxShape3D_dgfsc")
+
+[node name="Player" parent="." unique_id=2076882186 instance=ExtResource("1_k7bn5")]
 
 [connection signal="body_entered" from="PlayerGoal" to="." method="_on_player_goal_ball_entered"]
 [connection signal="body_entered" from="OpponentGoal" to="." method="_on_opponent_goal_ball_entered"]

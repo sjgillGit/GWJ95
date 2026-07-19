@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdk6hwb4hi2wc"]
 
-[ext_resource type="Script" uid="uid://c6a36b7nvb1sy" path="res://Scenes/Skeleton Minigames/Pong/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://ckjnc7fskfrm" path="res://Scenes/Skeleton Minigames/Pong/player.gd" id="1_rekqb"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dgfsc"]
 size = Vector3(0.1, 0.1, 1)
@@ -77,8 +77,7 @@ _data = {
 length = 0.87703395
 
 [node name="Player" type="CharacterBody3D" unique_id=2076882186]
-script = ExtResource("1_v0iea")
-acceleration = 50.0
+script = ExtResource("1_rekqb")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1577888143]
 

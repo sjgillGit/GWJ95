@@ -2,9 +2,9 @@ class_name Tetris_player extends CharacterBody3D
 
 @export_category("Player")
 @export_range(1, 35, 1) var speed: float = 20 # m/s
-@export_range(10, 400, 1) var acceleration: float = 50 # m/s^2
-
-@export_range(0.1, 3.0, 0.1) var jump_height: float = 5.2 # m
+@export_range(10, 400, 1) var acceleration: float = 100 # m/s^2
+@export var deceleration: float = 300
+@export_range(0.1, 3.0, 0.1) var jump_height: float = 10 # m
 
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -38,9 +38,15 @@ func release_mouse() -> void:
 	mouse_captured = false
 
 func _walk(delta: float) -> Vector3:
-	walk_vel.z = velocity.z
 	move_dir = Input.get_vector("Right", "Left", "Forward", "Back")
-	walk_vel.z = walk_vel.move_toward(Vector3(0, 0, move_dir.x) * speed, acceleration * delta).z
+
+	var target = Vector3(0, 0, move_dir.x * speed)
+
+	if move_dir == Vector2.ZERO:
+		walk_vel = walk_vel.move_toward(Vector3.ZERO, deceleration * delta)
+	else:
+		walk_vel = walk_vel.move_toward(target, acceleration * delta)
+
 	return walk_vel
 
 func _gravity(delta: float) -> Vector3:
@@ -51,17 +57,17 @@ func _jump(delta: float) -> Vector3:
 	if jumping:
 		jumping = false
 		if is_on_floor(): 
-			jump_vel = Vector3(0, sqrt(7 * jump_height * gravity), 0)
+			jump_vel = Vector3(0, sqrt(10 * jump_height * gravity), 0)
 			return jump_vel
 	if is_on_floor():
 		jump_vel = Vector3.ZERO
 		return jump_vel
 	if Input.is_action_pressed("Jump") and jump_vel.y > 0:
-		jump_vel = jump_vel.move_toward(Vector3.ZERO, gravity * 2 * delta)
-	elif !Input.is_action_pressed("Jump") and jump_vel.y > 0:
-		jump_vel = jump_vel.move_toward(Vector3.ZERO, gravity * 4 * delta)
+		jump_vel = jump_vel.move_toward(Vector3.ZERO, gravity * 3 * delta)
+	elif jump_vel.y > 0:
+		jump_vel = jump_vel.move_toward(Vector3.ZERO, gravity * 6 * delta)
 	else:
-		jump_vel = jump_vel.move_toward(Vector3(0,-15,0), gravity * 10 * delta)
+		jump_vel = jump_vel.move_toward(Vector3(0, -30, 0), gravity * 18 * delta)
 	return jump_vel
 
 func push(delta):

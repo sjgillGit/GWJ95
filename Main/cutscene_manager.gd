@@ -4,6 +4,8 @@ extends Node3D
 @onready var player = $"../Player"
 @onready var slime_spawner_1: Node3D = $"../Map/Rooms/Treasure Room/SlimeSpawner1"
 
+@onready var skeleton_game: Node3D = $"../SkeletonGame"
+
 var stop_movement = false
 
 # Called when the node enters the scene tree for the first time.
@@ -47,10 +49,26 @@ func vampire_cutscene_escape():
 	pass
 
 func skeleton_cutscene_explore():
-	pass
+	print("IGOTTA BONE TO PICK WITH YA")
+	await wait_for_interact()
+	skeleton_game.start_tetris_1()
+
+func skeleton_cutscene_fishing_1():
+	print("GRRRRRR, ITS TIME I TEACH YOU A LESSON...")
+	await wait_for_interact()
+	print("IN THE ULTIMATE DEADLY FISHING GAME!!!")
+	await wait_for_interact()
+	skeleton_game.start_fishing_1()
 
 func skeleton_cutscene_escape():
 	pass
+	
+
+func duo_cutscene_explore():
+	pass
+func duo_cutscene_escape():
+	pass
+
 
 func treasure_room_cutscene():
 	stop_movement = true

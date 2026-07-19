@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 	pass
 
 func start_counting_1(): #this one will be both the bat counting and the coffinshuffle
+	Manager.current_enemy = "vampire"
 	Manager.setting = "arena"
 	player.position = Vector3(30,0,150)
 	camera_3d.position = Vector3(0,7.5,13)
@@ -47,7 +48,8 @@ func start_coffinshuffle_1():
 func reverse_to_map_1():
 	Manager.vampire_key = true
 	Manager.setting = "map"
-	player.position = Vector3(30,0,0)
+	player.position = Vector3(30,0,-30)
+	Manager.current_enemy = ""
 	
 	
 

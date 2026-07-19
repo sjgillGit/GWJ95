@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://duvsr1upxfa"]
 
-[ext_resource type="Script" uid="uid://c2uavwha017e0" path="res://Scenes/Skeleton Minigames/Fishing/fishing.gd" id="1_twv7f"]
+[ext_resource type="Script" uid="uid://3fc38d0fifx8" path="res://Scenes/Skeleton Minigames/Fishing/fishing_race_bar.gd" id="1_h2nwa"]
 [ext_resource type="Script" uid="uid://b5w1lmrniu1bt" path="res://Scenes/Skeleton Minigames/Fishing/fish.gd" id="2_5cjye"]
 [ext_resource type="Shader" uid="uid://dmj8ve6g25kqk" path="res://Scenes/Skeleton Minigames/Fishing/water.gdshader" id="2_r4suh"]
+[ext_resource type="PackedScene" uid="uid://kxpcucd6crao" path="res://fishing_bar.tscn" id="4_qm2tt"]
 
 [sub_resource type="Gradient" id="Gradient_ntx00"]
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ntx00"]
 gradient = SubResource("Gradient_ntx00")
+fill_to = Vector2(0.5341297, 0.5307167)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdg1l"]
 size = Vector2(17, 16)
@@ -55,7 +57,7 @@ shader_parameter/wave_speed = 3.0
 size = Vector2(438, 132)
 
 [node name="Fishing" type="Node2D" unique_id=1367952027]
-script = ExtResource("1_twv7f")
+script = ExtResource("1_h2nwa")
 
 [node name="Background" type="Control" parent="." unique_id=1964502618]
 custom_minimum_size = Vector2(640, 380)
@@ -83,7 +85,7 @@ stretch_mode = 1
 [node name="Underwater" type="Node2D" parent="Background" unique_id=549902816]
 
 [node name="Floater" type="RigidBody2D" parent="Background/Underwater" unique_id=1012987757 groups=["Floater"]]
-position = Vector2(70, 161)
+position = Vector2(56, 152)
 collision_layer = 3
 mass = 0.1
 contact_monitor = true
@@ -197,6 +199,15 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Map/FloatingArea" unique_id=214501379]
 position = Vector2(6, 66)
 shape = SubResource("RectangleShape2D_eiqrc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1694700152]
+position = Vector2(318, 193)
+scale = Vector2(0.8, 0.8)
+zoom = Vector2(1.5, 1.5)
+
+[node name="FishingBar" parent="." unique_id=1655916083 instance=ExtResource("4_qm2tt")]
+position = Vector2(230.00002, 101.00001)
+scale = Vector2(0.15, 0.15)
 
 [connection signal="body_entered" from="Background/Map/FloatingArea" to="." method="_on_floating_area_body_entered"]
 [connection signal="body_exited" from="Background/Map/FloatingArea" to="." method="_on_floating_area_body_exited"]

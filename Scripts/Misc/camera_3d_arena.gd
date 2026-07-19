@@ -8,7 +8,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Manager.setting == "arena":
+	print(Manager.current_enemy)
+	if Manager.setting == "arena" and Manager.current_enemy == "vampire":
 		self.current = true
 	else: 
 		self.current = false

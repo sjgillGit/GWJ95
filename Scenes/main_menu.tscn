@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://ccvki4mmgufw6" path="res://Scripts/main_menu.gd" id="1_1i3ck"]
 [ext_resource type="Texture2D" uid="uid://b7b43luo86uhk" path="res://Assets/Back.png" id="3_3ljwu"]
 
-[node name="MainMenu" type="Node" unique_id=302191337]
-
-[node name="Menu" type="Control" parent="." unique_id=214718484]
+[node name="Menu" type="Control" unique_id=214718484]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1i3ck")
 
-[node name="StartMenu" type="Control" parent="Menu" unique_id=1933866053]
+[node name="StartMenu" type="Control" parent="." unique_id=1933866053]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/StartMenu" unique_id=1192380965]
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenu" unique_id=1192380965]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -34,24 +32,24 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/StartMenu/HBoxContainer" unique_id=1499723890]
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/HBoxContainer" unique_id=1499723890]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="Menu/StartMenu/HBoxContainer/VBoxContainer" unique_id=1026756238]
+[node name="Play" type="Button" parent="StartMenu/HBoxContainer/VBoxContainer" unique_id=1026756238]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "Play"
 
-[node name="Settings" type="Button" parent="Menu/StartMenu/HBoxContainer/VBoxContainer" unique_id=452524360]
+[node name="Settings" type="Button" parent="StartMenu/HBoxContainer/VBoxContainer" unique_id=452524360]
 layout_mode = 2
 text = "Settings"
 
-[node name="Quit" type="Button" parent="Menu/StartMenu/HBoxContainer/VBoxContainer" unique_id=1506930029]
+[node name="Quit" type="Button" parent="StartMenu/HBoxContainer/VBoxContainer" unique_id=1506930029]
 layout_mode = 2
 text = "Quit
 "
 
-[node name="SettingsMenu" type="Control" parent="Menu" unique_id=1874245345]
+[node name="SettingsMenu" type="Control" parent="." unique_id=1874245345]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,7 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="Menu/SettingsMenu" unique_id=937405363]
+[node name="TabContainer" type="TabContainer" parent="SettingsMenu" unique_id=937405363]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
@@ -68,36 +66,36 @@ grow_vertical = 2
 size_flags_horizontal = 3
 current_tab = 0
 
-[node name="Sound" type="MarginContainer" parent="Menu/SettingsMenu/TabContainer" unique_id=1473026384]
+[node name="Sound" type="MarginContainer" parent="SettingsMenu/TabContainer" unique_id=1473026384]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/SettingsMenu/TabContainer/Sound" unique_id=425784165]
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/TabContainer/Sound" unique_id=425784165]
 layout_mode = 2
 
-[node name="MasterVolume" type="Label" parent="Menu/SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=2121075153]
+[node name="MasterVolume" type="Label" parent="SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=2121075153]
 layout_mode = 2
 text = "Master Volume"
 
-[node name="MasterVolumeSlider" type="HSlider" parent="Menu/SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=236316437]
+[node name="MasterVolumeSlider" type="HSlider" parent="SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=236316437]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 min_value = -50.0
 max_value = 20.0
 
-[node name="SFXVolume" type="Label" parent="Menu/SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=981788228]
+[node name="SFXVolume" type="Label" parent="SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=981788228]
 layout_mode = 2
 text = "SFX Volume"
 
-[node name="SFXVolumeSlider" type="HSlider" parent="Menu/SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=54028831]
+[node name="SFXVolumeSlider" type="HSlider" parent="SettingsMenu/TabContainer/Sound/VBoxContainer" unique_id=54028831]
 layout_mode = 2
 min_value = -50.0
 max_value = 20.0
 
-[node name="Controls" type="MarginContainer" parent="Menu/SettingsMenu/TabContainer" unique_id=1547479417]
+[node name="Controls" type="MarginContainer" parent="SettingsMenu/TabContainer" unique_id=1547479417]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
@@ -106,23 +104,23 @@ theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Menu/SettingsMenu/TabContainer/Controls" unique_id=946140823]
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsMenu/TabContainer/Controls" unique_id=946140823]
 clip_contents = false
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer" unique_id=726264917]
+[node name="CenterContainer" type="CenterContainer" parent="SettingsMenu/TabContainer/Controls/ScrollContainer" unique_id=726264917]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer" unique_id=974682230]
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer" unique_id=974682230]
 layout_mode = 2
 
-[node name="MouseSensitivity" type="Label" parent="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=215637897]
+[node name="MouseSensitivity" type="Label" parent="SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=215637897]
 layout_mode = 2
 text = "Mouse sensitivity"
 
-[node name="MouseSensitivitySlider" type="HSlider" parent="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=1484018490]
+[node name="MouseSensitivitySlider" type="HSlider" parent="SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=1484018490]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.1
@@ -130,12 +128,12 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="SplitContainer" type="SplitContainer" parent="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=874285447]
+[node name="SplitContainer" type="SplitContainer" parent="SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=874285447]
 layout_mode = 2
 dragging_enabled = false
 dragger_visibility = 2
 
-[node name="InputMap" type="GridContainer" parent="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=1202045082]
+[node name="InputMap" type="GridContainer" parent="SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer" unique_id=1202045082]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
@@ -143,7 +141,7 @@ theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 5
 columns = 4
 
-[node name="Back" type="Button" parent="Menu/SettingsMenu" unique_id=1643801093]
+[node name="Back" type="Button" parent="SettingsMenu" unique_id=1643801093]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 1
 anchors_preset = 1
@@ -156,7 +154,7 @@ size_flags_vertical = 0
 flat = true
 expand_icon = true
 
-[node name="TextureRect" type="TextureRect" parent="Menu/SettingsMenu/Back" unique_id=1702242771]
+[node name="TextureRect" type="TextureRect" parent="SettingsMenu/Back" unique_id=1702242771]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -165,11 +163,11 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_3ljwu")
 
-[connection signal="pressed" from="Menu/StartMenu/HBoxContainer/VBoxContainer/Play" to="Menu" method="_on_play_pressed"]
-[connection signal="pressed" from="Menu/StartMenu/HBoxContainer/VBoxContainer/Settings" to="Menu" method="_on_settings_pressed"]
-[connection signal="pressed" from="Menu/StartMenu/HBoxContainer/VBoxContainer/Quit" to="Menu" method="_on_quit_pressed"]
-[connection signal="value_changed" from="Menu/SettingsMenu/TabContainer/Sound/VBoxContainer/MasterVolumeSlider" to="Menu" method="_on_master_volume_slider_value_changed"]
-[connection signal="value_changed" from="Menu/SettingsMenu/TabContainer/Sound/VBoxContainer/SFXVolumeSlider" to="Menu" method="_on_sfx_volume_slider_value_changed"]
-[connection signal="drag_ended" from="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer/MouseSensitivitySlider" to="Menu" method="_on_mouse_sensitivity_slider_drag_ended"]
-[connection signal="value_changed" from="Menu/SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer/MouseSensitivitySlider" to="Menu" method="_on_mouse_sensitivity_slider_value_changed"]
-[connection signal="pressed" from="Menu/SettingsMenu/Back" to="Menu" method="back_to_main"]
+[connection signal="pressed" from="StartMenu/HBoxContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="StartMenu/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="StartMenu/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="SettingsMenu/TabContainer/Sound/VBoxContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/TabContainer/Sound/VBoxContainer/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
+[connection signal="drag_ended" from="SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_drag_ended"]
+[connection signal="value_changed" from="SettingsMenu/TabContainer/Controls/ScrollContainer/CenterContainer/VBoxContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_value_changed"]
+[connection signal="pressed" from="SettingsMenu/Back" to="." method="back_to_main"]

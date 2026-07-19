@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdk6hwb4hi2wc"]
 
-[ext_resource type="Script" uid="uid://c6a36b7nvb1sy" path="res://Assemblies/Pong/player.gd" id="1_v0iea"]
+[ext_resource type="Script" uid="uid://c6a36b7nvb1sy" path="res://Scenes/Skeleton Minigames/Pong/player.gd" id="1_v0iea"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dgfsc"]
 size = Vector3(0.1, 0.1, 1)

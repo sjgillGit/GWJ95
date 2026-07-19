@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csk6rxb1jghth"]
 
-[ext_resource type="PackedScene" uid="uid://cgvave7414kta" path="res://Assemblies/Tetris/1block.tscn" id="1_6v16q"]
-[ext_resource type="PhysicsMaterial" uid="uid://cebk568v14vx4" path="res://Assemblies/Tetris/block_material.tres" id="1_cv035"]
+[ext_resource type="PackedScene" uid="uid://cgvave7414kta" path="res://Scenes/Skeleton Minigames/Tetris/1block.tscn" id="1_6v16q"]
+[ext_resource type="PhysicsMaterial" uid="uid://cebk568v14vx4" path="res://Scenes/Skeleton Minigames/Tetris/block_material.tres" id="1_cv035"]
 
 [node name="ODDblock" type="RigidBody3D" unique_id=737441758]
 axis_lock_angular_y = true

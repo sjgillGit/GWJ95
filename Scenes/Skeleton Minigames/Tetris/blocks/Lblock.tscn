@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kdpi42yaqrkf"]
 
-[ext_resource type="PackedScene" uid="uid://cgvave7414kta" path="res://Assemblies/Tetris/1block.tscn" id="1_57lr6"]
-[ext_resource type="PhysicsMaterial" uid="uid://cebk568v14vx4" path="res://Assemblies/Tetris/block_material.tres" id="1_745ki"]
+[ext_resource type="PackedScene" uid="uid://cgvave7414kta" path="res://Scenes/Skeleton Minigames/Tetris/1block.tscn" id="1_57lr6"]
+[ext_resource type="PhysicsMaterial" uid="uid://cebk568v14vx4" path="res://Scenes/Skeleton Minigames/Tetris/block_material.tres" id="1_745ki"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l1f2m"]
 size = Vector3(5, 5, 5)

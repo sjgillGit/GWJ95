@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://lqxiw5yc4s3t"]
 
-[ext_resource type="Script" uid="uid://bnfwieg4unkej" path="res://Assemblies/Tetris/tetris_main.gd" id="1_oggyg"]
-[ext_resource type="Material" uid="uid://cqg55mjlwyyju" path="res://Assemblies/Tetris/dissolving_material.tres" id="2_juan4"]
-[ext_resource type="PackedScene" uid="uid://cs2jsfnqewma0" path="res://Assemblies/Tetris/tetris_player.tscn" id="6_vr1o0"]
+[ext_resource type="Script" uid="uid://bnfwieg4unkej" path="res://Scenes/Skeleton Minigames/Tetris/tetris_main.gd" id="1_oggyg"]
+[ext_resource type="Material" uid="uid://cqg55mjlwyyju" path="res://Scenes/Skeleton Minigames/Tetris/dissolving_material.tres" id="2_juan4"]
+[ext_resource type="PackedScene" uid="uid://cs2jsfnqewma0" path="res://Scenes/Skeleton Minigames/Tetris/tetris_player.tscn" id="6_vr1o0"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_077hc"]
 size = Vector2(10, 50.5)

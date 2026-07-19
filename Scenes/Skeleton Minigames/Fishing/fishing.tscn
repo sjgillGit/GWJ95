@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://duvsr1upxfa"]
 
-[ext_resource type="Script" uid="uid://c2uavwha017e0" path="res://Assemblies/Fishing/fishing.gd" id="1_twv7f"]
-[ext_resource type="Script" uid="uid://b5w1lmrniu1bt" path="res://Assemblies/Fishing/fish.gd" id="2_5cjye"]
-[ext_resource type="Shader" uid="uid://dmj8ve6g25kqk" path="res://Assemblies/Fishing/water.gdshader" id="2_r4suh"]
+[ext_resource type="Script" uid="uid://c2uavwha017e0" path="res://Scenes/Skeleton Minigames/Fishing/fishing.gd" id="1_twv7f"]
+[ext_resource type="Script" uid="uid://b5w1lmrniu1bt" path="res://Scenes/Skeleton Minigames/Fishing/fish.gd" id="2_5cjye"]
+[ext_resource type="Shader" uid="uid://dmj8ve6g25kqk" path="res://Scenes/Skeleton Minigames/Fishing/water.gdshader" id="2_r4suh"]
 
 [sub_resource type="Gradient" id="Gradient_ntx00"]
 

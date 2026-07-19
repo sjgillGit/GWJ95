@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bholljpi7243v"]
 
-[ext_resource type="Script" uid="uid://csm2aawhh14bs" path="res://Assemblies/Pong/pong.gd" id="1_0oy6c"]
-[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Assemblies/Pong/player.tscn" id="1_k7bn5"]
-[ext_resource type="Script" uid="uid://d8xgmsbm8itc" path="res://Assemblies/Pong/pong_ball.gd" id="3_wp7ob"]
-[ext_resource type="Script" uid="uid://052ek5upvboj" path="res://Assemblies/Pong/opponent.gd" id="4_d80cs"]
+[ext_resource type="Script" uid="uid://csm2aawhh14bs" path="res://Scenes/Skeleton Minigames/Pong/pong.gd" id="1_0oy6c"]
+[ext_resource type="PackedScene" uid="uid://cdk6hwb4hi2wc" path="res://Scenes/Skeleton Minigames/Pong/player.tscn" id="1_k7bn5"]
+[ext_resource type="Script" uid="uid://d8xgmsbm8itc" path="res://Scenes/Skeleton Minigames/Pong/pong_ball.gd" id="3_wp7ob"]
+[ext_resource type="Script" uid="uid://052ek5upvboj" path="res://Scenes/Skeleton Minigames/Pong/opponent.gd" id="4_d80cs"]
 
 [sub_resource type="Environment" id="Environment_dgfsc"]
 background_mode = 1

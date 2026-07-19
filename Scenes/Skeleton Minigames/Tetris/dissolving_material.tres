@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cqg55mjlwyyju"]
 
-[ext_resource type="Shader" uid="uid://c4fqeln3m6kqs" path="res://Assemblies/Tetris/dissolve.gdshader" id="1_j0e8f"]
+[ext_resource type="Shader" uid="uid://c4fqeln3m6kqs" path="res://Scenes/Skeleton Minigames/Tetris/dissolve.gdshader" id="1_j0e8f"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2owhy"]
 noise_type = 3

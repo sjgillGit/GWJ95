@@ -8,11 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://dhrscxqsfniwk" path="res://Scenes/MapStuff/map.tscn" id="5_k3v36"]
 [ext_resource type="PackedScene" uid="uid://dia34lonxbh5s" path="res://Scenes/skeleton_game.tscn" id="6_47jfk"]
 [ext_resource type="PackedScene" uid="uid://kjil717kf3up" path="res://Scenes/MapStuff/treasure.tscn" id="7_ib3t1"]
+[ext_resource type="Texture2D" uid="uid://vum0gxb5h8b6" path="res://BlackRectangle.png" id="8_jpb7l"]
+[ext_resource type="PackedScene" uid="uid://bil7ydbial81w" path="res://textbox.tscn" id="8_yxi3x"]
 
 [node name="Main_Gameplay" type="Node3D" unique_id=1657951162]
 
 [node name="Vampire" parent="." unique_id=141208190 instance=ExtResource("1_liyct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.890877, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.890877, 0, -31.821169)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2078575428]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659259, 0, -0.9659259, 0.25881907, 0, 20, -30)
@@ -21,10 +23,8 @@ script = ExtResource("1_k3v36")
 [node name="Map" parent="." unique_id=1117956034 instance=ExtResource("5_k3v36")]
 script = null
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1891951393]
-
 [node name="Player" parent="." unique_id=2009462476 instance=ExtResource("2_2w1kt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055496216, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.06985, 1, 0)
 
 [node name="VampireGame" parent="." unique_id=1119769538 instance=ExtResource("3_qvhan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 150)
@@ -34,7 +34,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 150)
 [node name="CutsceneManager" type="Node3D" parent="." unique_id=1150411273]
 script = ExtResource("4_eunhr")
 
+[node name="Sprite2D" type="Sprite2D" parent="CutsceneManager" unique_id=1657890743]
+position = Vector2(605, 1081)
+scale = Vector2(3.060219, 1.1836159)
+texture = ExtResource("8_jpb7l")
+
+[node name="Textbox" parent="." unique_id=1714039778 instance=ExtResource("8_yxi3x")]
+position = Vector2(-30, -43)
+
 [node name="Treasure" parent="." unique_id=617177906 instance=ExtResource("7_ib3t1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.81523, 0, 0)
 collision_layer = 4
 collision_mask = 4
+
+[node name="Skeleton" parent="." unique_id=1883960780 instance=ExtResource("1_liyct")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.890877, 0, 28.485289)

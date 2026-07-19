@@ -21,3 +21,4 @@ tutorials = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 379.5681, 0, 0)
 
 [node name="Fishing" parent="." unique_id=1367952027 instance=ExtResource("3_806um")]
+visible = false

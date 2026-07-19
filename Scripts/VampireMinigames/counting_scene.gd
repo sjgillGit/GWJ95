@@ -31,6 +31,7 @@ func _ready() -> void:
 	spawner.spawn_delay = 0.4 if Manager.mode == "explore" else 0.3
 
 func start_game():
+	position = Vector3(0,0,0)
 	spawner.start_spawning()
 
 

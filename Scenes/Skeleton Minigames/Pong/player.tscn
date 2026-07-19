@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://cdk6hwb4hi2wc"]
 
 [ext_resource type="Script" uid="uid://ckjnc7fskfrm" path="res://Scenes/Skeleton Minigames/Pong/player.gd" id="1_rekqb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_dgfsc"]
-size = Vector3(0.1, 0.1, 1)
+[ext_resource type="PackedScene" uid="uid://dn8r5cl2ffi2t" path="res://Assets/knight/sword.glb" id="2_1f3s5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_okknv"]
 size = Vector3(1.5023193, 1, 1.9886475)
@@ -86,8 +84,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -0.37300467)
 fov = 80.0
 
 [node name="Arm" type="MeshInstance3D" parent="Pivot/Camera" unique_id=1795873080]
-transform = Transform3D(0.99996203, 0, 0.008710399, 0, 0.9999998, 0, -0.008710398, 0, 0.9999621, 0.21938705, -0.264848, -0.15722549)
-mesh = SubResource("BoxMesh_dgfsc")
+transform = Transform3D(0.9999621, 0, 0.008710399, 0, 0.9999998, 0, -0.008710399, 0, 0.9999621, 0.21938705, -0.264848, -0.15722549)
+
+[node name="sword" parent="Pivot/Camera/Arm" unique_id=1696910577 instance=ExtResource("2_1f3s5")]
+transform = Transform3D(0.45788935, -4.6566126e-10, 4.656613e-10, -4.6566126e-10, -2.0014976e-08, 0.45788932, 0, -0.45788932, -2.0014976e-08, 0, 0, 0)
 
 [node name="SwingArea" type="Area3D" parent="Pivot/Camera" unique_id=1012177133]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.83404577)

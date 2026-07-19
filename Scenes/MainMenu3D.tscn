@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bgckdu7kbok0f"]
+
+[ext_resource type="PackedScene" uid="uid://de7tooukwelas" path="res://Assets/exterior.blend" id="1_rti0f"]
+[ext_resource type="Texture2D" uid="uid://x7b1sgdtj34n" path="res://Assets/Textures/OutsideGroundTex.png" id="2_vms58"]
+[ext_resource type="Texture2D" uid="uid://b6hevc7pnpuqn" path="res://Assets/Textures/OutdoorCorridorTex.png" id="3_af6ui"]
+[ext_resource type="Texture2D" uid="uid://4k02ouj2om3v" path="res://Assets/Textures/OutsideCliffTex.png" id="4_73ajd"]
+[ext_resource type="Texture2D" uid="uid://daqp24bilifue" path="res://Assets/Textures/OutsideDoorTex.png" id="5_4tj1s"]
+[ext_resource type="PackedScene" uid="uid://dsoxd8qhpqyws" path="res://Scenes/main_menu.tscn" id="6_0sv5r"]
+[ext_resource type="Animation" uid="uid://ce61yjjed3x5j" path="res://Assets/Animations/GameStartAnim.res" id="6_af6ui"]
+[ext_resource type="Script" uid="uid://v8fici1x1kxd" path="res://Scenes/MainMenuAnimator.gd" id="7_73ajd"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_rkm2y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqkgr"]
+albedo_texture = ExtResource("2_vms58")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m44ky"]
+albedo_texture = ExtResource("3_af6ui")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dygma"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8uw1"]
+albedo_texture = ExtResource("4_73ajd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ska28"]
+albedo_texture = ExtResource("5_4tj1s")
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_73ajd"]
+_data = {
+&"GameStartAnim": ExtResource("6_af6ui")
+}
+
+[node name="exterior" unique_id=1844831199 instance=ExtResource("1_rti0f")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1098817184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3283064e-07, 0, 4.0149174)
+visible = false
+mesh = SubResource("QuadMesh_rkm2y")
+
+[node name="Ground" parent="." index="1" unique_id=2072163231]
+material_override = SubResource("StandardMaterial3D_hqkgr")
+
+[node name="Entrance" parent="." index="2" unique_id=89101810]
+material_override = SubResource("StandardMaterial3D_m44ky")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Entrance" index="0" unique_id=471187510]
+transform = Transform3D(2000, 0, 0, 0, 2000, 0, 0, 0, 2000, -0.06520414, -22.764889, -128.49402)
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("CanvasTexture_dygma")
+
+[node name="Cliff" parent="." index="3" unique_id=805856292]
+material_override = SubResource("StandardMaterial3D_f8uw1")
+
+[node name="Skeleton3D" parent="ExteriorArmature" parent_id_path=PackedInt32Array(404102829) index="0" unique_id=968598416]
+bones/1/rotation = Quaternion(0, 0, -0.7071068, 0.7071067)
+bones/2/position = Vector3(3.584734, 6.887458e-15, 4.2207054e-07)
+bones/2/rotation = Quaternion(2.5121475e-15, -1.06770145e-07, 0.7071069, 0.70710665)
+bones/3/position = Vector3(37.235268, 36.93695, 3.7342806)
+bones/3/rotation = Quaternion(0.30396348, 0.63844043, 0.63844043, 0.30396348)
+
+[node name="Door" parent="ExteriorArmature/Skeleton3D" index="0" unique_id=1626888604]
+material_override = SubResource("StandardMaterial3D_ska28")
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="ExteriorArmature/Skeleton3D" index="1" unique_id=452725137]
+transform = Transform3D(0.63042474, 0, -0.7762503, 0, 1, 0, 0.7762503, 0, 0.63042474, -37.235268, 3.7342806, 36.93695)
+bone_name = "Camera_2"
+bone_idx = 3
+
+[node name="Camera3D" type="Camera3D" parent="ExteriorArmature/Skeleton3D/BoneAttachment3D" index="0" unique_id=617469063]
+fov = 29.5
+
+[node name="Sprite3D" type="Sprite3D" parent="ExteriorArmature/Skeleton3D/BoneAttachment3D/Camera3D" index="0" unique_id=155449641]
+transform = Transform3D(55.901337, 0, 0, 0, 55.90134, 0, 0, 0, 1.000001, 1.1166682e-07, 0, -0.28124118)
+modulate = Color(0, 0, 0, 0)
+texture = SubResource("CanvasTexture_dygma")
+
+[node name="AnimationPlayer" parent="." index="5" unique_id=1530522843 node_paths=PackedStringArray("menu2D")]
+libraries/stf_exterior = SubResource("AnimationLibrary_73ajd")
+script = ExtResource("7_73ajd")
+menu2D = NodePath("../CanvasLayer/MainMenu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="6" unique_id=761790735]
+
+[node name="MainMenu" parent="CanvasLayer" index="0" unique_id=811596404 instance=ExtResource("6_0sv5r")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="7" unique_id=1307852974]
+transform = Transform3D(0.8665806, 0.13125339, 0.48146722, -0.41937086, 0.71448183, 0.5600391, -0.27049243, -0.6872324, 0.6742, 7.888687, 99.54934, 120.32492)

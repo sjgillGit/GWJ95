@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://de3osa8t4747i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1nrlu"]
+size = Vector3(29.900787, 10.949829, 1)
+
+[node name="Wall" type="StaticBody3D" unique_id=1590827371]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1017515765]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07005596, 4.5517645, 0)
+mesh = SubResource("BoxMesh_1nrlu")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="." unique_id=2040004987]
+polygon = PackedVector2Array(15, -1, 15, 10, -15, 10, -15, -1)

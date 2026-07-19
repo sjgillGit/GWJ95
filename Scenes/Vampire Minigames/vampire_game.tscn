@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c3i1mr2v1nh1c"]
+
+[ext_resource type="PackedScene" uid="uid://b5l8ustsf3uta" path="res://Scenes/Vampire Minigames/CoffinShuffle/coffinshuffle_scene.tscn" id="1_r76cu"]
+[ext_resource type="Script" uid="uid://bt5fp72ie7ilb" path="res://Scripts/VampireMinigames/vampire_game.gd" id="1_ye453"]
+[ext_resource type="PackedScene" uid="uid://dvhsy57vf5csq" path="res://Scenes/Vampire Minigames/BatCounting/counting_scene.tscn" id="2_1x6qu"]
+[ext_resource type="PackedScene" uid="uid://bexh73aratnpf" path="res://Scenes/MapStuff/Arena.tscn" id="2_ye453"]
+[ext_resource type="PackedScene" uid="uid://q5hf7q5wg2ee" path="res://Scenes/Vampire Minigames/DoorsVampire/door_symbols_scene.tscn" id="3_ghmyy"]
+[ext_resource type="PackedScene" uid="uid://do0qets42hg1j" path="res://Scenes/Vampire Minigames/BatHunt/bat_hunt_scene.tscn" id="4_ye453"]
+[ext_resource type="PackedScene" uid="uid://bv0ter88cwt4a" path="res://Scenes/MapStuff/VampireMap.tscn" id="5_w5oxg"]
+[ext_resource type="Script" uid="uid://cxga1p32q7vk" path="res://Scripts/Misc/camera_3d_arena.gd" id="8_w5oxg"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nfy5u"]
+
+[node name="VampireGame" type="Node3D" unique_id=1119769538]
+script = ExtResource("1_ye453")
+
+[node name="Arena" parent="." unique_id=1148387950 instance=ExtResource("2_ye453")]
+
+[node name="CountingScene" parent="." unique_id=1386442738 instance=ExtResource("2_1x6qu")]
+
+[node name="CoffinshuffleScene" parent="." unique_id=97865913 instance=ExtResource("1_r76cu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8940201, 0.4633789, -0.3614502)
+visible = false
+
+[node name="DoorSymbolsScene" parent="." unique_id=905517721 instance=ExtResource("3_ghmyy")]
+visible = false
+
+[node name="BatHuntScene" parent="." unique_id=2146188156 instance=ExtResource("4_ye453")]
+visible = false
+
+[node name="Vampire" parent="." unique_id=141208190 instance=ExtResource("5_w5oxg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1679834778]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=45311072]
+shape = SubResource("WorldBoundaryShape3D_nfy5u")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1195828740]
+transform = Transform3D(1, 0, 0, 0, 0.86893296, 0.49492982, 0, -0.49492982, 0.86893296, 0, 7.5, 11.172607)
+script = ExtResource("8_w5oxg")

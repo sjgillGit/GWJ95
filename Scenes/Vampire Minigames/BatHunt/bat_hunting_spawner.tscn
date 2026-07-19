@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://i6pp6qa2q5lm"]
+
+[ext_resource type="Script" uid="uid://btso3ny8sh6n4" path="res://Scripts/VampireMinigames/bat_hunting_spawner.gd" id="1_s0hw2"]
+[ext_resource type="PackedScene" uid="uid://bjfm1mmtfbohp" path="res://Scenes/Vampire Minigames/BatHunt/bat_hunting.tscn" id="2_0nryi"]
+
+[node name="BatHuntingSpawner" type="Node3D" unique_id=1425264841]
+script = ExtResource("1_s0hw2")
+bat_scene = ExtResource("2_0nryi")
+
+[node name="Bat_Hunting" parent="." unique_id=1734351391 instance=ExtResource("2_0nryi")]

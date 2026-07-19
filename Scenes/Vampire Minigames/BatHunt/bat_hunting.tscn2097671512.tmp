@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bjfm1mmtfbohp"]
+
+[ext_resource type="Script" uid="uid://6va15de0jgv1" path="res://Scripts/bat_hunting.gd" id="1_7yjcl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bi0c6"]
+
+[node name="Bat_Hunting" type="Area3D" unique_id=1734351391]
+script = ExtResource("1_7yjcl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=134208231]
+shape = SubResource("BoxShape3D_nfy5u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1672282657]
+mesh = SubResource("BoxMesh_bi0c6")

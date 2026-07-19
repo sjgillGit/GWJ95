@@ -1,0 +1,213 @@
+[gd_scene format=3 uid="uid://duvsr1upxfa"]
+
+[ext_resource type="Script" uid="uid://3fc38d0fifx8" path="res://Scenes/Skeleton Minigames/Fishing/fishing_race_bar.gd" id="1_h2nwa"]
+[ext_resource type="Script" uid="uid://b5w1lmrniu1bt" path="res://Scenes/Skeleton Minigames/Fishing/fish.gd" id="2_5cjye"]
+[ext_resource type="Shader" uid="uid://dmj8ve6g25kqk" path="res://Scenes/Skeleton Minigames/Fishing/water.gdshader" id="2_r4suh"]
+[ext_resource type="PackedScene" uid="uid://kxpcucd6crao" path="res://fishing_bar.tscn" id="4_qm2tt"]
+
+[sub_resource type="Gradient" id="Gradient_ntx00"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntx00"]
+gradient = SubResource("Gradient_ntx00")
+fill_to = Vector2(0.5341297, 0.5307167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdg1l"]
+size = Vector2(17, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfmc2"]
+size = Vector2(22, 9)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_dgfsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgfsc"]
+size = Vector2(100, 200)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f7eii"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gdg1l"]
+noise = SubResource("FastNoiseLite_f7eii")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6vad4"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ntx00"]
+noise = SubResource("FastNoiseLite_6vad4")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dgfsc"]
+shader = ExtResource("2_r4suh")
+shader_parameter/alpha = 0.5
+shader_parameter/base_y = 0.12
+shader_parameter/waterNoise = SubResource("NoiseTexture2D_ntx00")
+shader_parameter/waterDistortionNoise = SubResource("NoiseTexture2D_gdg1l")
+shader_parameter/waterColor = Vector4(0.069, 0.333, 0.58, 1)
+shader_parameter/colorCorection = 0.0
+shader_parameter/distortionForce = 0.026
+shader_parameter/WDBrightness = 0.386
+shader_parameter/WDFreq = 0.39
+shader_parameter/WDSize = 2.0
+shader_parameter/WDSpeed = 3.658
+shader_parameter/tiling = Vector2(1.164, 1)
+shader_parameter/offSetSpeed = Vector2(0.035, 0.01)
+shader_parameter/wave_frequency = 15.0
+shader_parameter/wave_amplitude = 0.025
+shader_parameter/wave_speed = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiqrc"]
+size = Vector2(438, 132)
+
+[node name="Fishing" type="Node2D" unique_id=1367952027]
+script = ExtResource("1_h2nwa")
+
+[node name="Background" type="Control" parent="." unique_id=1964502618]
+custom_minimum_size = Vector2(640, 380)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 380.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="Background" unique_id=975165184]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ntx00")
+stretch_mode = 1
+
+[node name="Underwater" type="Node2D" parent="Background" unique_id=549902816]
+
+[node name="Floater" type="RigidBody2D" parent="Background/Underwater" unique_id=1012987757 groups=["Floater"]]
+position = Vector2(56, 152)
+collision_layer = 3
+mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 0.3
+angular_damp = 1.0
+metadata/_edit_group_ = true
+
+[node name="Bait" type="ColorRect" parent="Background/Underwater/Floater" unique_id=134987107]
+visible = false
+offset_left = -3.0
+offset_top = 75.0
+offset_right = 2.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Underwater/Floater" unique_id=190651720]
+position = Vector2(-1.5, -2)
+shape = SubResource("RectangleShape2D_gdg1l")
+
+[node name="ColorRect" type="ColorRect" parent="Background/Underwater/Floater" unique_id=419360708]
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 8.0
+offset_bottom = 9.0
+color = Color(1, 0.101960786, 1, 1)
+
+[node name="Fish" type="CharacterBody2D" parent="Background/Underwater" unique_id=1143773841]
+position = Vector2(387, 286)
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("2_5cjye")
+
+[node name="ColorRect" type="ColorRect" parent="Background/Underwater/Fish" unique_id=1577350962]
+offset_right = 22.0
+offset_bottom = 9.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Underwater/Fish" unique_id=1396195377]
+position = Vector2(11, 4.5)
+shape = SubResource("RectangleShape2D_rfmc2")
+
+[node name="Map" type="Node2D" parent="Background" unique_id=1783330325]
+
+[node name="Bottom" type="StaticBody2D" parent="Background/Map" unique_id=1475439306]
+position = Vector2(320, 393)
+
+[node name="Bottom" type="TextureRect" parent="Background/Map/Bottom" unique_id=108225346]
+offset_left = -225.0
+offset_top = -51.0
+offset_right = 225.0
+offset_bottom = 49.0
+offset_transform_position = Vector2(-50, -100)
+texture = SubResource("CanvasTexture_dgfsc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Map/Bottom" unique_id=1007808045]
+visible = false
+shape = SubResource("RectangleShape2D_dgfsc")
+
+[node name="PLACEHOLDER" type="ColorRect" parent="Background/Map/Bottom" unique_id=1630458924]
+offset_left = -226.0
+offset_top = -51.0
+offset_right = 225.0
+offset_bottom = 50.0
+color = Color(1, 0.7411765, 0.58431375, 1)
+
+[node name="WaterShader" type="ColorRect" parent="Background/Map" unique_id=675792142]
+material = SubResource("ShaderMaterial_dgfsc")
+offset_left = 98.0
+offset_top = 209.0
+offset_right = 549.0
+offset_bottom = 361.0
+
+[node name="LeftShore" type="StaticBody2D" parent="Background/Map" unique_id=209999205]
+position = Vector2(1, 180)
+metadata/_edit_group_ = true
+
+[node name="LeftShore" type="TextureRect" parent="Background/Map/LeftShore" unique_id=1316586544]
+custom_minimum_size = Vector2(100, 200)
+offset_right = 100.0
+offset_bottom = 200.0
+offset_transform_position = Vector2(-50, -100)
+texture = SubResource("CanvasTexture_dgfsc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Map/LeftShore" unique_id=616257932]
+visible = false
+position = Vector2(50, 100)
+shape = SubResource("RectangleShape2D_dgfsc")
+
+[node name="RightShore" type="StaticBody2D" parent="Background/Map" unique_id=1458247394]
+position = Vector2(541, 180)
+metadata/_edit_group_ = true
+
+[node name="RightShore" type="TextureRect" parent="Background/Map/RightShore" unique_id=103335514]
+custom_minimum_size = Vector2(100, 200)
+offset_right = 100.0
+offset_bottom = 200.0
+offset_transform_position = Vector2(-50, -100)
+texture = SubResource("CanvasTexture_dgfsc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Map/RightShore" unique_id=689339964]
+visible = false
+position = Vector2(50, 100)
+shape = SubResource("RectangleShape2D_dgfsc")
+
+[node name="FloatingArea" type="Area2D" parent="Background/Map" unique_id=571990392]
+position = Vector2(315, 226)
+collision_layer = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Map/FloatingArea" unique_id=214501379]
+position = Vector2(6, 66)
+shape = SubResource("RectangleShape2D_eiqrc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1694700152]
+position = Vector2(318, 193)
+scale = Vector2(0.8, 0.8)
+zoom = Vector2(1.5, 1.5)
+
+[node name="FishingBar" parent="." unique_id=1655916083 instance=ExtResource("4_qm2tt")]
+position = Vector2(230.00002, 101.00001)
+scale = Vector2(0.15, 0.15)
+
+[connection signal="body_entered" from="Background/Map/FloatingArea" to="." method="_on_floating_area_body_entered"]
+[connection signal="body_exited" from="Background/Map/FloatingArea" to="." method="_on_floating_area_body_exited"]

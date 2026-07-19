@@ -4,6 +4,7 @@ var active_menu = 0
 @onready var mouse_sensitivity_slider: HSlider = %MouseSensitivitySlider
 @onready var input_map: GridContainer = %InputMap
 
+signal game_starting
 
 func _ready():
 	show()
@@ -13,6 +14,9 @@ func _ready():
 	Global.set_ui_effect_recursive(self)
 
 func _on_play_pressed() -> void:
+	game_starting.emit()
+
+func begin_game() -> void:
 	var scene = load("res://Main/main_gameplay.tscn").instantiate()
 	get_tree().root.add_child(scene)
 	self.hide()

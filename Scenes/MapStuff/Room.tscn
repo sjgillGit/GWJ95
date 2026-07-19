@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://7ihej8l17pst"]
+
+[ext_resource type="Script" uid="uid://c0dwgjxh4kujn" path="res://Scripts/MapStuff/room.gd" id="1_61bxy"]
+[ext_resource type="PackedScene" uid="uid://deaii00cdf6p5" path="res://Scenes/MapStuff/wall_door.tscn" id="1_u3qo1"]
+[ext_resource type="PackedScene" uid="uid://bvulo4ykca8qc" path="res://Scenes/MapStuff/Room_detection.tscn" id="2_61bxy"]
+
+[node name="Room" type="Node3D" unique_id=1148387950]
+script = ExtResource("1_61bxy")
+
+[node name="Wall2" parent="." unique_id=1965802209 instance=ExtResource("1_u3qo1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, 0)
+
+[node name="Wall" parent="." unique_id=1571439154 instance=ExtResource("1_u3qo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="Wall3" parent="." unique_id=1021905587 instance=ExtResource("1_u3qo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
+
+[node name="Wall4" parent="." unique_id=708632267 instance=ExtResource("1_u3qo1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, 0)
+
+[node name="RoomDetection" parent="." unique_id=1436698963 instance=ExtResource("2_61bxy")]

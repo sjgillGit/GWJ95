@@ -51,13 +51,42 @@ func reverse_to_map_1():
 	player.position = Vector3(30,0,-30)
 	Manager.current_enemy = ""
 	
-	
+
+func start_counting_2(): 
+	Manager.current_enemy = "vampire"
+	Manager.setting = "arena"
+	player.position = Vector3(30,0,150)
+	camera_3d.position = Vector3(0,7.5,13)
+	await get_tree().create_timer(1).timeout
+	vampire.hide()
+	await get_tree().create_timer(0.5).timeout
+	vampire.position = Vector3(0,1,-10)
+	vampire.show()
+	counting_scene.start_game()
+
+
 
 func vampire_cutscene_coffinshuffle_2():
-	pass
+	coffinshuffle_scene.position = Vector3(0,0,0)
+	coffinshuffle_scene.show_coffins()
+	await get_tree().create_timer(0.5).timeout
+	vampire.position = coffinshuffle_scene.coffin_positions[coffinshuffle_scene.correct_coffin] if Manager.mode == "explore" else coffinshuffle_scene.coffin_positions_escape[coffinshuffle_scene.correct_coffin]
+	vampire.position.z += 4
+	await get_tree().create_timer(0.5).timeout
+	var target = vampire.position + Vector3(0, 0, -4)
+	var tween = create_tween()
+	tween.tween_property(vampire, "position", target, 0.3)
+	await get_tree().create_timer(0.5).timeout
+	vampire.hide()
+	print("game started")
+	coffinshuffle_scene.start_game()
 
 	
-
+func reverse_to_map_2():
+	Manager.vampire_escape_done = true
+	Manager.setting = "map"
+	player.position = Vector3(30,0,-30)
+	Manager.current_enemy = ""
 
 
 

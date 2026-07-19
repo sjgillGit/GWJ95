@@ -5,6 +5,12 @@ extends Node3D
 @onready var slime_spawner_1: Node3D = $"../Map/Rooms/Treasure Room/SlimeSpawner1"
 
 @onready var skeleton_game: Node3D = $"../SkeletonGame"
+@onready var textbox: Node2D = $"../Textbox"
+@onready var vampire: CharacterBody3D = $"../Vampire"
+@onready var skeleton: CharacterBody3D = $"../Skeleton"
+
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 
 var stop_movement = false
 
@@ -22,50 +28,101 @@ func _process(delta: float) -> void:
 
 func vampire_cutscene_explore():
 	stop_movement = true
-	print("Vampire: So... another visitor.")
+	textbox.display_text("Vampire: So... another visitor.")
 	await wait_for_interact()
 
-	print("Vampire: Let's play a little game.")
+	textbox.display_text("Vampire: Let's play a little game.")
 	await wait_for_interact()
 
-	print("Vampire: Survive if you can.")
+	textbox.display_text("Vampire: Survive if you can.")
 	await wait_for_interact()
+	
+	textbox.hide_text()
+	
 	stop_movement = false
-
+	transition_start()
+	
 	vampire_game.start_counting_1()
+
+	transition_end()
 
 	
 	
 func vampire_cutscene_coffinshuffle_1():
-	print("Damn, looks like you can count higher than 10...")
+	textbox.display_text("Damn, looks like you can count higher than 10...")
 	await wait_for_interact()
 	
-	print("But try to keep up with this masterful shuffling!")
+	textbox.display_text("But try to keep up with this masterful shuffling!")
 	await wait_for_interact()
+	textbox.hide_text()
 	vampire_game.start_coffinshuffle_1()
 
 
+
 func vampire_cutscene_escape():
-	pass
+	stop_movement = true
+	textbox.display_text("I'm Not gonna let you beat me again!!")
+	await wait_for_interact()
+	textbox.hide_text()
+	stop_movement = false
+	transition_start()
+	vampire_game.start_counting_2()
+	transition_end()
+
+func vampire_cutscene_coffinshuffle_2():
+	await wait_for_interact()
+	textbox.display_text("Damn, looks like you can count higher than 10...")
+	await wait_for_interact()
+	
+	textbox.display_text("But try to keep up with this masterful shuffling!")
+	await wait_for_interact()
+	textbox.hide_text()
+	vampire_game.start_coffinshuffle_2()
 
 func skeleton_cutscene_explore():
-	print("IGOTTA BONE TO PICK WITH YA")
+	stop_movement = true
+	textbox.display_text("IGOTTA BONE TO PICK WITH YA")
 	await wait_for_interact()
+	textbox.hide_text()
+	stop_movement = false
+	transition_start()
 	skeleton_game.start_tetris_1()
+	transition_end()
 
 func skeleton_cutscene_fishing_1():
-	print("GRRRRRR, ITS TIME I TEACH YOU A LESSON...")
+	textbox.display_text("GRRRRRR, ITS TIME I TEACH YOU A LESSON...")
 	await wait_for_interact()
-	print("IN THE ULTIMATE DEADLY FISHING GAME!!!")
+	textbox.display_text("IN THE ULTIMATE DEADLY FISHING GAME!!!")
 	await wait_for_interact()
+	textbox.hide_text()
+	transition_start()
 	skeleton_game.start_fishing_1()
+	transition_end()
 
 func skeleton_cutscene_escape():
-	pass
+	stop_movement = true
+	textbox.display_text("IGOTTA BONE TO PICK WITH YA")
+	await wait_for_interact()
+	textbox.hide_text()
+	stop_movement = false
+	transition_start()
+	skeleton_game.start_tetris_2()
+	transition_end()
 	
+func skeleton_cutscene_fishing_2():
+	textbox.display_text("GRRRRRR, ITS TIME I TEACH YOU A LESSON...")
+	await wait_for_interact()
+	textbox.display_text("IN THE ULTIMATE DEADLY FISHING GAME!!!")
+	await wait_for_interact()
+	textbox.hide_text()
+	transition_start()
+	skeleton_game.start_fishing_2()
+	transition_end()
 
 func duo_cutscene_explore():
-	pass
+	vampire.position = Vector3(90,0,-32)
+	skeleton.position = Vector3(90,0,-28)
+
 func duo_cutscene_escape():
 	pass
 
@@ -79,8 +136,19 @@ func treasure_room_cutscene():
 
 
 
+func transition_start():
+	sprite_2d.position = Vector2(650,1100)
+	var tween = create_tween()
+	tween.tween_property(sprite_2d, "position", Vector2(650, 300), 0.5)
 
+	await tween.finished
+	
+func transition_end():
+	sprite_2d.position = Vector2(650,300)
+	var tween = create_tween()
+	tween.tween_property(sprite_2d, "position", Vector2(650, -500), 0.5)
 
+	await tween.finished
 
 
 func wait_for_interact():

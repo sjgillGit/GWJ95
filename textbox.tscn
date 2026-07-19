@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bil7ydbial81w"]
+
+[ext_resource type="Script" uid="uid://bl48j8g1j4d3u" path="res://Textbox.gd" id="1_ptcjm"]
+[ext_resource type="Texture2D" uid="uid://7cx5ojh5p28e" path="res://teastain 69.png" id="2_4fg7c"]
+
+[node name="Textbox" type="Node2D" unique_id=1714039778]
+script = ExtResource("1_ptcjm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1693920861]
+position = Vector2(612.50006, 941)
+scale = Vector2(0.6925198, 0.36968246)
+texture = ExtResource("2_4fg7c")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D" unique_id=263921269]
+offset_left = -761.7112
+offset_top = -1604.0793
+offset_right = 638.9708
+offset_bottom = -1222.6709
+text = "How 
+"

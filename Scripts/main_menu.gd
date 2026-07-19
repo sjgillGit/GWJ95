@@ -14,13 +14,18 @@ func _ready():
 	Global.set_ui_effect_recursive(self)
 
 func _on_play_pressed() -> void:
+	begin_game()
 	game_starting.emit()
 
 func begin_game() -> void:
 	var scene = load("res://Main/main_gameplay.tscn").instantiate()
 	get_tree().root.add_child(scene)
+	scene.hide()
+	await get_tree().create_timer(9.5).timeout
+	scene.show()
 	self.hide()
 	update_menu()
+
 
 
 func _on_settings_pressed() -> void:

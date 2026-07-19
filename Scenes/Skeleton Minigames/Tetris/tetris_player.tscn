@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs2jsfnqewma0"]
 
-[ext_resource type="Script" uid="uid://jv6ted4od35l" path="res://tetris_player.gd" id="1_mc3xq"]
+[ext_resource type="Script" uid="uid://jv6ted4od35l" path="res://Scripts/SkeletonMinigames/tetris_player.gd" id="1_mc3xq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dgfsc"]
 radius = 1.0

@@ -185,4 +185,7 @@ func _on_coffin_interacted(coffin):
 	
 	position = Vector3(0,-20,0)
 	hide()
-	vampire_game.reverse_to_map_1()
+	if Manager.mode == "explore":
+		vampire_game.reverse_to_map_1()
+	else:
+		vampire_game.reverse_to_map_2()

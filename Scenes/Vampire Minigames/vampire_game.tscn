@@ -4,8 +4,6 @@
 [ext_resource type="Script" uid="uid://bt5fp72ie7ilb" path="res://Scripts/VampireMinigames/vampire_game.gd" id="1_ye453"]
 [ext_resource type="PackedScene" uid="uid://dvhsy57vf5csq" path="res://Scenes/Vampire Minigames/BatCounting/counting_scene.tscn" id="2_1x6qu"]
 [ext_resource type="PackedScene" uid="uid://bexh73aratnpf" path="res://Scenes/MapStuff/Arena.tscn" id="2_ye453"]
-[ext_resource type="PackedScene" uid="uid://q5hf7q5wg2ee" path="res://Scenes/Vampire Minigames/DoorsVampire/door_symbols_scene.tscn" id="3_ghmyy"]
-[ext_resource type="PackedScene" uid="uid://do0qets42hg1j" path="res://Scenes/Vampire Minigames/BatHunt/bat_hunt_scene.tscn" id="4_ye453"]
 [ext_resource type="PackedScene" uid="uid://bv0ter88cwt4a" path="res://Scenes/MapStuff/VampireMap.tscn" id="5_w5oxg"]
 [ext_resource type="Script" uid="uid://cxga1p32q7vk" path="res://Scripts/Misc/camera_3d_arena.gd" id="8_w5oxg"]
 
@@ -20,12 +18,6 @@ script = ExtResource("1_ye453")
 
 [node name="CoffinshuffleScene" parent="." unique_id=97865913 instance=ExtResource("1_r76cu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8940201, 0.4633789, -0.3614502)
-visible = false
-
-[node name="DoorSymbolsScene" parent="." unique_id=905517721 instance=ExtResource("3_ghmyy")]
-visible = false
-
-[node name="BatHuntScene" parent="." unique_id=2146188156 instance=ExtResource("4_ye453")]
 visible = false
 
 [node name="Vampire" parent="." unique_id=141208190 instance=ExtResource("5_w5oxg")]

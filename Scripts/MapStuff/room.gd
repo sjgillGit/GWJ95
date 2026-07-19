@@ -33,17 +33,17 @@ func detect_special():
 			
 			if Manager.skeleton_key == false:
 				cutscene_manager.skeleton_cutscene_explore()
-			elif Manager.skeleton_escape_done == false:
+			elif Manager.skeleton_escape_done == false and Manager.mode == "escape":
 				cutscene_manager.duo_cutscene_escape()
 		elif special_room == "vampire":
 			if Manager.vampire_key == false:
 				cutscene_manager.vampire_cutscene_explore()
-			elif Manager.vampire_escape_done == false:
+			elif Manager.vampire_escape_done == false and Manager.mode == "escape":
 				cutscene_manager.vampire_cutscene_escape()
 		elif special_room == "duo":
 			if Manager.skeleton_key == true and Manager.vampire_key == true and Manager.duo_explore_done == false:
 				cutscene_manager.duo_cutscene_explore()
-			elif Manager.skeleton_escape_done == false:
+			elif Manager.skeleton_escape_done == false and Manager.mode == "escape":
 				cutscene_manager.skeleton_cutscene_escape()
 
 			

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cdodvpvury04g" path="res://Scenes/MapStuff/slime_spawner.tscn" id="2_clvm1"]
 [ext_resource type="PackedScene" uid="uid://m3i8tugm2553" path="res://Scenes/MapStuff/slime.tscn" id="3_wgbt0"]
 [ext_resource type="PackedScene" uid="uid://de3osa8t4747i" path="res://Scenes/MapStuff/wall.tscn" id="4_myvm1"]
+[ext_resource type="Script" uid="uid://e8xwwmpsv6kt" path="res://Scenes/MapStuff/escape_walls.gd" id="5_wgbt0"]
 
 [sub_resource type="GDScript" id="GDScript_clvm1"]
 script/source = "extends StaticBody3D
@@ -210,3 +211,30 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 105,
 
 [node name="Wall17" parent="Walls" unique_id=727028952 instance=ExtResource("4_myvm1")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 135, 0, 0)
+
+[node name="Escape Walls" type="Node3D" parent="." unique_id=117521764]
+script = ExtResource("5_wgbt0")
+
+[node name="Wall" parent="Escape Walls" unique_id=2113430099 instance=ExtResource("4_myvm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 0, 15)
+
+[node name="Wall2" parent="Escape Walls" unique_id=216850846 instance=ExtResource("4_myvm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -15)
+
+[node name="Wall3" parent="Escape Walls" unique_id=904450030 instance=ExtResource("4_myvm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 15)
+
+[node name="Wall4" parent="Escape Walls" unique_id=1397811169 instance=ExtResource("4_myvm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="Wall5" parent="Escape Walls" unique_id=2134072090 instance=ExtResource("4_myvm1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 0, 0)
+
+[node name="Wall6" parent="Escape Walls" unique_id=1154839751 instance=ExtResource("4_myvm1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75, 0, 30)
+
+[node name="Wall7" parent="Escape Walls" unique_id=1474525137 instance=ExtResource("4_myvm1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, 0)
+
+[node name="Wall8" parent="Escape Walls" unique_id=815534452 instance=ExtResource("4_myvm1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15, 0, -30)

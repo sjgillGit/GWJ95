@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://c0dwgjxh4kujn" path="res://Scripts/MapStuff/room.gd" id="1_61bxy"]
 [ext_resource type="PackedScene" uid="uid://deaii00cdf6p5" path="res://Scenes/MapStuff/wall_door.tscn" id="1_u3qo1"]
 [ext_resource type="PackedScene" uid="uid://bvulo4ykca8qc" path="res://Scenes/MapStuff/Room_detection.tscn" id="2_61bxy"]
+[ext_resource type="Texture2D" uid="uid://bbea186wwl0a7" path="res://Assets/Textures/BrickFloor.png" id="4_5ewm7"]
+[ext_resource type="PackedScene" uid="uid://cr7ghjfpt1j1t" path="res://Assets/Torch.glb" id="5_ujsh7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evsnr"]
+albedo_texture = ExtResource("4_5ewm7")
+
+[sub_resource type="QuadMesh" id="QuadMesh_rkm2y"]
+size = Vector2(29, 29)
+orientation = 1
 
 [node name="Room" type="Node3D" unique_id=1148387950]
 script = ExtResource("1_61bxy")
@@ -20,3 +29,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15, 0, 0)
 
 [node name="RoomDetection" parent="." unique_id=1436698963 instance=ExtResource("2_61bxy")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1189076171]
+material_override = SubResource("StandardMaterial3D_evsnr")
+mesh = SubResource("QuadMesh_rkm2y")
+
+[node name="Torch" parent="." unique_id=1044915774 instance=ExtResource("5_ujsh7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1688, 0, -12.8621855)
+
+[node name="Torch2" parent="." unique_id=1321222651 instance=ExtResource("5_ujsh7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.759035, 0, 12.731591)
+
+[node name="Torch3" parent="." unique_id=503365837 instance=ExtResource("5_ujsh7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.058456, 0, -12.745484)
+
+[node name="Torch4" parent="." unique_id=214507322 instance=ExtResource("5_ujsh7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.886757, 0, 12.581926)

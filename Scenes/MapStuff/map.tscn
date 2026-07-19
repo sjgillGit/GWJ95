@@ -5,14 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://m3i8tugm2553" path="res://Scenes/MapStuff/slime.tscn" id="3_wgbt0"]
 [ext_resource type="PackedScene" uid="uid://de3osa8t4747i" path="res://Scenes/MapStuff/wall.tscn" id="4_myvm1"]
 
+[sub_resource type="GDScript" id="GDScript_clvm1"]
+script/source = "extends StaticBody3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	hide()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nfy5u"]
 
 [node name="Map" type="StaticBody3D" unique_id=1117956034]
+script = SubResource("GDScript_clvm1")
 
 [node name="Floor" type="CollisionShape3D" parent="." unique_id=1979627280]
 shape = SubResource("WorldBoundaryShape3D_nfy5u")
 
-[node name="Rooms" type="Node" parent="." unique_id=83861701]
+[node name="Rooms" type="Node3D" parent="." unique_id=708928741]
 
 [node name="Room1" parent="Rooms" unique_id=614481433 instance=ExtResource("1_myvm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
@@ -44,7 +58,7 @@ target_position = Vector3(90, 0, -30)
 
 [node name="SlimeSpawner3" parent="Rooms/Room4" unique_id=2013076038 node_paths=PackedStringArray("next_spawner") instance=ExtResource("2_clvm1")]
 slime_scene = ExtResource("3_wgbt0")
-start_marker = Vector3(120, 0, -30)
+start_marker = Vector3(90, 0, 0)
 end_marker = Vector3(90, 0, -30)
 next_spawner = NodePath("../../Room3/SlimeSpawner4")
 
@@ -84,7 +98,7 @@ target_position = Vector3(90, 0, 0)
 
 [node name="SlimeSpawner2" parent="Rooms/Room8" unique_id=2130309554 node_paths=PackedStringArray("next_spawner") instance=ExtResource("2_clvm1")]
 slime_scene = ExtResource("3_wgbt0")
-start_marker = Vector3(90, 0, 30)
+start_marker = Vector3(120, 0, 0)
 end_marker = Vector3(90, 0, 0)
 next_spawner = NodePath("../../Room4/SlimeSpawner3")
 
@@ -142,7 +156,7 @@ start_marker = Vector3(150, 0, 0)
 end_marker = Vector3(120, 0, 0)
 next_spawner = NodePath("../../Room8/SlimeSpawner2")
 
-[node name="Walls" type="Node" parent="." unique_id=958313184]
+[node name="Walls" type="Node3D" parent="." unique_id=9981191]
 
 [node name="Wall" parent="Walls" unique_id=1590827371 instance=ExtResource("4_myvm1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)

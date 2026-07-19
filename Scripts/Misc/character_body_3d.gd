@@ -22,7 +22,7 @@ var grav_vel: Vector3 # Gravity velocity
 var jump_vel: Vector3 # Jumping velocity
 
 var can_interact = true
-var stop_movement = false
+var stop_movement = true
 
 
 

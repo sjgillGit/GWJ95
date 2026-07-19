@@ -5,6 +5,7 @@ extends Node3D
 @onready var coffin_2: CharacterBody3D = $Coffin2
 @onready var coffin_3: CharacterBody3D = $Coffin3
 @onready var cutscene_manager: Node3D = $"../../CutsceneManager"
+@onready var win_lost_manager: Node3D = $"../../WinLostManager"
 
 var bat_count := 0
 var answer_options = []
@@ -74,6 +75,7 @@ func _on_coffin_interacted(coffin):
 		print("Correct!")
 	else:
 		print("Wrong!")
+		win_lost_manager.lose()
 	
 	coffin_1.hide()
 	coffin_2.hide()

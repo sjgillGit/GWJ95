@@ -10,6 +10,7 @@ extends Node3D
 @onready var skeleton: CharacterBody3D = $"../Skeleton"
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var duo_game: Node3D = $"../DuoGame"
 
 
 var stop_movement = false
@@ -119,9 +120,28 @@ func skeleton_cutscene_fishing_2():
 	skeleton_game.start_fishing_2()
 	transition_end()
 
+
+
+
+
+
 func duo_cutscene_explore():
+	stop_movement = true
+
 	vampire.position = Vector3(90,0,-32)
 	skeleton.position = Vector3(90,0,-28)
+	textbox.display_text("You are strong, but can you take both of us?")
+	await wait_for_interact()
+	textbox.display_text("I HAVENT FORGIVEN YOU JUST YET!")
+	await wait_for_interact()
+	textbox.hide_text()
+	stop_movement = false
+
+	transition_start()
+	duo_game.start_bat_hunt_scene_1()
+	transition_end()
+
+
 
 func duo_cutscene_escape():
 	pass

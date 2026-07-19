@@ -1,11 +1,12 @@
 extends Area3D
 
+signal bat_died
+
 var speed = 8
 var facing = "left"
 
 var vertical_speed = 0
 var flip_cooldown = false
-
 
 
 func _process(delta: float) -> void:
@@ -17,7 +18,7 @@ func _process(delta: float) -> void:
 	vertical_speed = move_toward(vertical_speed, 0, 5 * delta)
 
 	if abs(position.z) > 15:
-		queue_free()
+		die()
 
 	if position.x > 10:
 		facing = "left"
@@ -29,4 +30,9 @@ func _process(delta: float) -> void:
 
 
 func is_hit():
-	pass
+	die()
+
+
+func die():
+	bat_died.emit()
+	queue_free()

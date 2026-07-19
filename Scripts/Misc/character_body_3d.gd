@@ -7,7 +7,7 @@ extends CharacterBody3D
 @export_range(0.1, 3.0, 0.1) var jump_height: float = 5.2 # m
 
 @onready var area = $Area3D
-@export var reset_position: Vector3
+var reset_pos = Vector3(120,0,0)
 
 var jumping: bool = false
 var mouse_captured: bool = false
@@ -131,11 +131,11 @@ func get_closest_body():
 	
 	return closest_body
 
-func _on_escape_reset():
-	global_position = reset_position
+
+
+func reset_position():
+	global_position = reset_pos
 	velocity = Vector3.ZERO
-
-
 #func push(delta):
 	#if !Input.is_action_pressed('Interact'): return
 	#

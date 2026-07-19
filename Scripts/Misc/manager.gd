@@ -3,8 +3,8 @@ extends Node3D
 var mode = "explore" #explore or escape
 var setting = "" #map or arena
 
-var vampire_key = false
-var skeleton_key = false
+var vampire_key = true
+var skeleton_key = true
 
 var treasure_room_event = false
 

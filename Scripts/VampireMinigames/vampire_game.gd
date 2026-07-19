@@ -66,7 +66,7 @@ func start_counting_2():
 
 
 
-func vampire_cutscene_coffinshuffle_2():
+func start_coffinshuffle_2():
 	coffinshuffle_scene.position = Vector3(0,0,0)
 	coffinshuffle_scene.show_coffins()
 	await get_tree().create_timer(0.5).timeout

@@ -9,7 +9,6 @@
 script = ExtResource("1_7i2rd")
 
 [node name="BatHuntScene" parent="." unique_id=2146188156 instance=ExtResource("1_uvvd7")]
-visible = false
 
 [node name="Pong" parent="." unique_id=1072218534 instance=ExtResource("2_bu72b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 379.5681, 0, 0)

@@ -15,10 +15,12 @@ var bats_alive = 0
 
 
 func _ready() -> void:
-	start_waves()
-
+	pass
 
 func start_waves():
+	current_wave = 0
+	bats_alive = 0
+	
 	while current_wave < total_waves:
 		current_wave += 1
 		
@@ -47,8 +49,10 @@ func spawn_bat():
 	
 	var rand_direction = ["left","right"].pick_random()
 	bat.facing = rand_direction
-	bat.global_position = position
-	
+	bat.global_position = global_position
+
+	bat.bat_died.connect(_on_bat_died)
+
 	bats_alive += 1
 	
 

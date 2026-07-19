@@ -113,21 +113,22 @@ func _input(event: InputEvent) -> void:
 			
 
 func tutorial():
-	if hardcore:
-		for tut in tutorials:
-			tutorials[tut].visible = false
-	if Input.is_action_pressed("Sprint") and tutorials.has('TutorialSHIFT'):
-		tutorials['TutorialSHIFT'].apply_central_force(Vector3.DOWN*25000)
-		tutorials.erase('TutorialSHIFT')
-	if (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")) and tutorials.has('TutorialAD'):
-		tutorials['TutorialAD'].apply_central_force(Vector3.DOWN*25000)
-		tutorials.erase('TutorialAD')
-	if Input.is_action_pressed("Interact") and tutorials.has('TutorialPUSH'):
-		tutorials['TutorialPUSH'].apply_central_force(Vector3.DOWN*25000)
-		tutorials.erase('TutorialPUSH')
-	if Input.is_action_pressed("Jump") and tutorials.has('TutorialJump'):
-		tutorials['TutorialJump'].apply_central_force(Vector3.DOWN*25000)
-		tutorials.erase('TutorialJump')
+	pass
+	#if hardcore:
+		#for tut in tutorials:
+			#tutorials[tut].visible = false
+	#if Input.is_action_pressed("Sprint") and tutorials.has('TutorialSHIFT'):
+		#tutorials['TutorialSHIFT'].apply_central_force(Vector3.DOWN*25000)
+		#tutorials.erase('TutorialSHIFT')
+	#if (Input.is_action_pressed("Left") or Input.is_action_pressed("Right")) and tutorials.has('TutorialAD'):
+		#tutorials['TutorialAD'].apply_central_force(Vector3.DOWN*25000)
+		#tutorials.erase('TutorialAD')
+	#if Input.is_action_pressed("Interact") and tutorials.has('TutorialPUSH'):
+		#tutorials['TutorialPUSH'].apply_central_force(Vector3.DOWN*25000)
+		#tutorials.erase('TutorialPUSH')
+	#if Input.is_action_pressed("Jump") and tutorials.has('TutorialJump'):
+		#tutorials['TutorialJump'].apply_central_force(Vector3.DOWN*25000)
+		#tutorials.erase('TutorialJump')
 
 func hardcore_mode(delta:float):
 	if lost: return

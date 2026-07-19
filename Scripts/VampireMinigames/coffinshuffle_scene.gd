@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var vampire_game: Node3D = $".."
+@onready var win_lost_manager: Node3D = $"../../WinLostManager"
 
 @onready var coffins = [
 	$Coffin1,
@@ -180,6 +181,7 @@ func _on_coffin_interacted(coffin):
 		print("Correct!")
 	else:
 		print("Wrong!")
+		win_lost_manager.lose()
 	
 	
 	

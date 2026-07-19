@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://m3i8tugm2553"]
 
 [ext_resource type="Script" uid="uid://djceth510id64" path="res://Scripts/MapStuff/slime.gd" id="1_2ny4t"]
-[ext_resource type="Script" uid="uid://c1e0ilrm4ogxr" path="res://Scripts/MapStuff/slime_hitbox.gd" id="2_pefsd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
 size = Vector3(30, 15, 30)
@@ -23,9 +22,10 @@ mesh = SubResource("BoxMesh_nfy5u")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=14689237]
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1141353183]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
-script = ExtResource("2_pefsd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1175777982]
 shape = SubResource("BoxShape3D_nfy5u")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

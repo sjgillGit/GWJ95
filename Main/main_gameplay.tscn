@@ -7,9 +7,11 @@
 [ext_resource type="Script" uid="uid://bad30tlanjwtl" path="res://Main/cutscene_manager.gd" id="4_eunhr"]
 [ext_resource type="PackedScene" uid="uid://dhrscxqsfniwk" path="res://Scenes/MapStuff/map.tscn" id="5_k3v36"]
 [ext_resource type="PackedScene" uid="uid://dia34lonxbh5s" path="res://Scenes/skeleton_game.tscn" id="6_47jfk"]
+[ext_resource type="PackedScene" uid="uid://pwewo8405340" path="res://duo_game.tscn" id="7_3154k"]
 [ext_resource type="PackedScene" uid="uid://kjil717kf3up" path="res://Scenes/MapStuff/treasure.tscn" id="7_ib3t1"]
 [ext_resource type="Texture2D" uid="uid://vum0gxb5h8b6" path="res://BlackRectangle.png" id="8_jpb7l"]
 [ext_resource type="PackedScene" uid="uid://bil7ydbial81w" path="res://textbox.tscn" id="8_yxi3x"]
+[ext_resource type="Script" uid="uid://cnqgxldoggaf4" path="res://Main/win_lost_manager.gd" id="11_e27ys"]
 
 [node name="Main_Gameplay" type="Node3D" unique_id=1657951162]
 
@@ -24,12 +26,17 @@ script = ExtResource("1_k3v36")
 script = null
 
 [node name="Player" parent="." unique_id=2009462476 instance=ExtResource("2_2w1kt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.06985, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 1, 0)
+speed = null
+acceleration = null
+jump_height = null
 
 [node name="VampireGame" parent="." unique_id=1119769538 instance=ExtResource("3_qvhan")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, 150)
 
 [node name="SkeletonGame" parent="." unique_id=2053369122 instance=ExtResource("6_47jfk")]
+
+[node name="DuoGame" parent="." unique_id=1762962386 instance=ExtResource("7_3154k")]
 
 [node name="CutsceneManager" type="Node3D" parent="." unique_id=1150411273]
 script = ExtResource("4_eunhr")
@@ -49,3 +56,6 @@ collision_mask = 4
 
 [node name="Skeleton" parent="." unique_id=1883960780 instance=ExtResource("1_liyct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.890877, 0, 28.485289)
+
+[node name="WinLostManager" type="Node3D" parent="." unique_id=972276927]
+script = ExtResource("11_e27ys")

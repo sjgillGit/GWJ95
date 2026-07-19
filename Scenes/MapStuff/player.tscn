@@ -13,6 +13,7 @@ albedo_color = Color(0.21568628, 0.61960787, 1, 1)
 radius = 2.0
 
 [node name="Player" type="CharacterBody3D" unique_id=2009462476 groups=["player"]]
+collision_layer = 3
 script = ExtResource("1_ryvvo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=629523414]

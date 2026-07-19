@@ -1,8 +1,9 @@
 extends CharacterBody3D
 
 signal reached_end
+signal escape_triggered
 
-@export var speed := 8.0
+@export var speed := 3.0
 
 var target_position: Vector3
 var start_position: Vector3
@@ -10,7 +11,13 @@ var moving := true
 
 
 func _ready():
-	start_position = global_position
+	$Area3D.body_entered.connect(_on_escape_area_entered)
+
+
+func _on_escape_area_entered(body: Node3D):
+	if body.is_in_group("player"):
+		print("slime touched player")
+		escape_triggered.emit()
 
 
 func _physics_process(delta):

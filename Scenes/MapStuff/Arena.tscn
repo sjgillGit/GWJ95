@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bexh73aratnpf"]
 
-[ext_resource type="Script" uid="uid://c0dwgjxh4kujn" path="res://Scripts/room.gd" id="1_p3ojh"]
+[ext_resource type="Script" uid="uid://c0dwgjxh4kujn" path="res://Scripts/MapStuff/room.gd" id="1_p3ojh"]
 [ext_resource type="PackedScene" uid="uid://de3osa8t4747i" path="res://Scenes/MapStuff/wall.tscn" id="2_fixaf"]
 
 [node name="Arena" type="Node3D" unique_id=1148387950]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvlirx2ngtcfk"]
 
-[ext_resource type="Script" uid="uid://bv4sy8j5b06qw" path="res://Scripts/door.gd" id="1_jvx3h"]
+[ext_resource type="Script" uid="uid://bv4sy8j5b06qw" path="res://Scripts/VampireMinigames/door.gd" id="1_jvx3h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
 

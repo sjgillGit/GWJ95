@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dhrscxqsfniwk"]
 
 [ext_resource type="PackedScene" uid="uid://7ihej8l17pst" path="res://Scenes/MapStuff/Room.tscn" id="1_myvm1"]
-[ext_resource type="PackedScene" uid="uid://cdodvpvury04g" path="res://slime_spawner.tscn" id="2_clvm1"]
-[ext_resource type="PackedScene" uid="uid://m3i8tugm2553" path="res://slime.tscn" id="3_wgbt0"]
+[ext_resource type="PackedScene" uid="uid://cdodvpvury04g" path="res://Scenes/MapStuff/slime_spawner.tscn" id="2_clvm1"]
+[ext_resource type="PackedScene" uid="uid://m3i8tugm2553" path="res://Scenes/MapStuff/slime.tscn" id="3_wgbt0"]
 [ext_resource type="PackedScene" uid="uid://de3osa8t4747i" path="res://Scenes/MapStuff/wall.tscn" id="4_myvm1"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nfy5u"]

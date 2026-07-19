@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kjil717kf3up"]
 
-[ext_resource type="Script" uid="uid://wnhcad8b1nvp" path="res://treasure.gd" id="1_dubxd"]
+[ext_resource type="Script" uid="uid://wnhcad8b1nvp" path="res://Scripts/MapStuff/treasure.gd" id="1_dubxd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bi0c6"]
 

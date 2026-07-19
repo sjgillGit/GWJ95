@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5l8ustsf3uta"]
 
-[ext_resource type="Script" uid="uid://we8v44c8arbg" path="res://Scripts/coffinshuffle_scene.gd" id="1_0wcld"]
+[ext_resource type="Script" uid="uid://we8v44c8arbg" path="res://Scripts/VampireMinigames/coffinshuffle_scene.gd" id="1_0wcld"]
 [ext_resource type="PackedScene" uid="uid://cdoy58rksg703" path="res://Scenes/Vampire Minigames/CoffinShuffle/coffin.tscn" id="2_3f2ra"]
 
 [node name="CoffinshuffleScene" type="Node3D" unique_id=97865913]

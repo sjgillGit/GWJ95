@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjfm1mmtfbohp"]
 
-[ext_resource type="Script" uid="uid://6va15de0jgv1" path="res://Scripts/bat_hunting.gd" id="1_7yjcl"]
+[ext_resource type="Script" uid="uid://6va15de0jgv1" path="res://Scripts/VampireMinigames/bat_hunting.gd" id="1_7yjcl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
 

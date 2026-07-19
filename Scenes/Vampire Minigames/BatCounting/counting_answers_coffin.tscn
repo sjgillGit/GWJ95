@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cun1ijuf3idgr"]
 
-[ext_resource type="Script" uid="uid://pjjdu6qasdxu" path="res://Scenes/Vampire Minigames/BatCounting/counting_answers_coffin.gd" id="1_3h081"]
+[ext_resource type="Script" uid="uid://pjjdu6qasdxu" path="res://Scripts/VampireMinigames/counting_answers_coffin.gd" id="1_3h081"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nfy5u"]
 

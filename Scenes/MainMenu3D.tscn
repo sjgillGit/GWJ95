@@ -55,17 +55,17 @@ texture = SubResource("CanvasTexture_dygma")
 material_override = SubResource("StandardMaterial3D_f8uw1")
 
 [node name="Skeleton3D" parent="ExteriorArmature" parent_id_path=PackedInt32Array(893246305) index="0" unique_id=1490853783]
-bones/1/rotation = Quaternion(0, 0, -0.9997777, -0.021090182)
+bones/1/rotation = Quaternion(0, 0, -0.7071068, 0.7071067)
 bones/2/position = Vector3(3.584734, 6.887458e-15, 4.2207054e-07)
-bones/2/rotation = Quaternion(-7.692325e-08, -7.404512e-08, 0.9998183, -0.01906106)
-bones/3/position = Vector3(24.735764, 38.83032, 3.3161497)
-bones/3/rotation = Quaternion(0.24546707, 0.65198845, 0.67386204, 0.24610355)
+bones/2/rotation = Quaternion(2.5121475e-15, -1.06770145e-07, 0.7071069, 0.70710665)
+bones/3/position = Vector3(37.235268, 36.93695, 3.7342806)
+bones/3/rotation = Quaternion(0.30396348, 0.63844043, 0.63844043, 0.30396348)
 
 [node name="Door" parent="ExteriorArmature/Skeleton3D" index="0" unique_id=728335499]
 material_override = SubResource("StandardMaterial3D_ska28")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="ExteriorArmature/Skeleton3D" index="1" unique_id=452725137]
-transform = Transform3D(0.758358, 0.011596322, -0.6517352, 0.009908527, 0.9995212, 0.029313922, 0.6517631, -0.028688312, 0.7578799, -24.735764, 3.3161497, 38.83032)
+transform = Transform3D(0.63042474, 0, -0.7762503, 0, 1, 0, 0.7762503, 0, 0.63042474, -37.235268, 3.7342806, 36.93695)
 bone_name = "Camera_2"
 bone_idx = 3
 
@@ -91,8 +91,7 @@ menu3D = NodePath("..")
 transform = Transform3D(0.8665806, 0.13125339, 0.48146722, -0.41937086, 0.71448183, 0.5600391, -0.27049243, -0.6872324, 0.6742, 7.888687, 99.54934, 120.32492)
 
 [node name="knight" parent="." index="8" unique_id=1764065411 instance=ExtResource("9_4tj1s")]
-transform = Transform3D(-1.366415, 0, -1.1945579e-07, 0, 1.366415, 0, 1.1945579e-07, 0, -1.366415, -0.05029474, -5.789747, -14.6208)
-anim_walking = true
+transform = Transform3D(-1.366415, 0, -1.1945579e-07, 0, 1.366415, 0, 1.1945579e-07, 0, -1.366415, -0.05029204, -3.6505857, 15.054443)
 
 [node name="Torch" parent="." index="9" unique_id=1044915774 instance=ExtResource("10_0sv5r")]
 transform = Transform3D(1.96, 0, 0, 0, 1.96, 0, 0, 0, 1.96, -8.432873, -2.8302999, 1.7663574)

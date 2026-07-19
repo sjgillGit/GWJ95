@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://vum0gxb5h8b6" path="res://BlackRectangle.png" id="8_jpb7l"]
 [ext_resource type="PackedScene" uid="uid://bil7ydbial81w" path="res://textbox.tscn" id="8_yxi3x"]
 [ext_resource type="Script" uid="uid://cnqgxldoggaf4" path="res://Main/win_lost_manager.gd" id="11_e27ys"]
+[ext_resource type="PackedScene" uid="uid://cyqvqyswue635" path="res://Assets/Skeleton/Skeleton.glb" id="12_3154k"]
 
 [sub_resource type="GDScript" id="GDScript_bi0c6"]
 script/source = "extends Area3D
@@ -71,9 +72,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.81523, 0, 0)
 collision_layer = 4
 collision_mask = 4
 
-[node name="Skeleton" parent="." unique_id=1883960780 instance=ExtResource("1_liyct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.890877, 0, 28.485289)
-
 [node name="WinLostManager" type="Node3D" parent="." unique_id=972276927]
 script = ExtResource("11_e27ys")
 
@@ -85,3 +83,6 @@ script = SubResource("GDScript_bi0c6")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=37193350]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.804108, 0, 0)
 shape = SubResource("BoxShape3D_nfy5u")
+
+[node name="Skeleton" parent="." unique_id=847305358 instance=ExtResource("12_3154k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.590107, 0.014711618, 30.205769)

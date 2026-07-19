@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bpf6eyx42m7lc"]
+
+[ext_resource type="PackedScene" uid="uid://cr7ghjfpt1j1t" path="res://Assets/Torch.glb" id="1_pa17o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72pgl"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_pa17o"]
+material = SubResource("StandardMaterial3D_72pgl")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_s1444"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_w3qnr"]
+colors = PackedColorArray(1, 0.7176471, 0, 1, 0.7019608, 0.21960784, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_kx7w4"]
+colors = PackedColorArray(0.7607843, 0.4509804, 0, 1, 0.5921569, 0.27450982, 0, 1)
+
+[node name="Torch" unique_id=1044915774 instance=ExtResource("1_pa17o")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=909855438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6955109, 0)
+light_color = Color(1, 0.78039217, 0, 1)
+light_energy = 2.825
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." index="2" unique_id=1619772772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1086564, 0)
+amount = 16
+mesh = SubResource("BoxMesh_pa17o")
+emission_shape = 6
+emission_colors = PackedColorArray(1, 0.62352943, 0, 1)
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.05
+emission_ring_radius = 0.4
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 3, 0)
+scale_amount_curve = SubResource("Curve_s1444")
+color_ramp = SubResource("Gradient_w3qnr")
+color_initial_ramp = SubResource("Gradient_kx7w4")

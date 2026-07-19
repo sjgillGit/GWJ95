@@ -9,6 +9,7 @@
 [ext_resource type="Animation" uid="uid://ce61yjjed3x5j" path="res://Assets/Animations/GameStartAnim.res" id="6_af6ui"]
 [ext_resource type="Script" uid="uid://v8fici1x1kxd" path="res://Scenes/MainMenuAnimator.gd" id="7_73ajd"]
 [ext_resource type="PackedScene" uid="uid://cexjrhvmgnn6u" path="res://KnightModel.tscn" id="9_4tj1s"]
+[ext_resource type="PackedScene" uid="uid://bpf6eyx42m7lc" path="res://torch.tscn" id="10_0sv5r"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_rkm2y"]
 
@@ -92,3 +93,9 @@ transform = Transform3D(0.8665806, 0.13125339, 0.48146722, -0.41937086, 0.714481
 [node name="knight" parent="." index="8" unique_id=1764065411 instance=ExtResource("9_4tj1s")]
 transform = Transform3D(-1.366415, 0, -1.1945579e-07, 0, 1.366415, 0, 1.1945579e-07, 0, -1.366415, -0.05029474, -5.789747, -14.6208)
 anim_walking = true
+
+[node name="Torch" parent="." index="9" unique_id=1044915774 instance=ExtResource("10_0sv5r")]
+transform = Transform3D(1.96, 0, 0, 0, 1.96, 0, 0, 0, 1.96, -8.432873, -2.8302999, 1.7663574)
+
+[node name="Torch2" parent="." index="10" unique_id=85480335 instance=ExtResource("10_0sv5r")]
+transform = Transform3D(1.96, 0, 0, 0, 1.96, 0, 0, 0, 1.96, 8.278336, -2.4697995, 1.6185303)

@@ -26,12 +26,12 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_faxgo"]
 xfade_time = 0.2
 advance_mode = 2
-advance_expression = "xz.length_squared() > 0.1"
+advance_expression = "anim_walking"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rm0x7"]
 xfade_time = 0.2
 advance_mode = 2
-advance_expression = "xz.length_squared() <= 0.1
+advance_expression = "!anim_walking
 "
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rkm2y"]
@@ -46,26 +46,26 @@ graph_offset = Vector2(-36, -13)
 script = ExtResource("2_rp4yn")
 
 [node name="Skeleton3D" parent="KnightArmature" parent_id_path=PackedInt32Array(2041580352) index="0" unique_id=931764778]
-bones/1/position = Vector3(7.506327e-25, 2.7541e-08, 0.063877754)
+bones/1/position = Vector3(5.2502223e-25, 2.9671924e-08, 0.071359195)
 bones/1/rotation = Quaternion(0.70710665, 8.429371e-08, 8.429368e-08, 0.7071069)
-bones/2/position = Vector3(-0.0021617657, 0.93239063, -0.014687013)
-bones/2/rotation = Quaternion(0.018716406, -0.0026357246, -0.0011774126, 0.9998207)
+bones/2/position = Vector3(-0.0001242555, 0.9406752, -0.00084419444)
+bones/2/rotation = Quaternion(0.0010423753, -0.00014679265, -6.55742e-05, 0.99999946)
 bones/3/rotation = Quaternion(0.056150064, -0.065216474, 0.81362516, 0.5749854)
-bones/4/rotation = Quaternion(0.07595625, -0.3077843, 0.25422236, 0.91371256)
-bones/5/rotation = Quaternion(0.26008165, -0.0068682814, 0.0047924016, 0.9655503)
-bones/6/rotation = Quaternion(0.09492765, 0.31284133, 0.28551596, 0.9008883)
+bones/4/rotation = Quaternion(0.09072403, -0.29131347, 0.25289404, 0.9181233)
+bones/5/rotation = Quaternion(0.24027061, -0.00690469, 0.0044273674, 0.9706713)
+bones/6/rotation = Quaternion(0.09202304, 0.3069065, 0.2995112, 0.89868426)
 bones/7/rotation = Quaternion(0.07455077, 0.0003293827, 0.14462908, 0.9866734)
 bones/8/rotation = Quaternion(2.0722513e-07, 4.2167184e-07, 0.20450886, 0.9788647)
 bones/11/rotation = Quaternion(0.22197011, 0.009129358, -0.7847474, 0.57863414)
-bones/12/rotation = Quaternion(0.05493663, -0.18849725, -0.24714306, 0.9488789)
-bones/13/rotation = Quaternion(0.58234483, 0.005782032, -0.010730484, 0.8128505)
-bones/14/rotation = Quaternion(-0.021563387, -0.28859907, -0.15938267, 0.9438447)
+bones/12/rotation = Quaternion(0.058053005, -0.1945974, -0.22922954, 0.95195365)
+bones/13/rotation = Quaternion(0.59111416, 0.0057368, -0.010892062, 0.80649406)
+bones/14/rotation = Quaternion(-0.020329194, -0.3078434, -0.14860271, 0.9395406)
 bones/15/rotation = Quaternion(0.07294019, 0.015415953, -0.34966, 0.9339057)
 bones/16/rotation = Quaternion(3.927379e-07, -2.683014e-07, -0.6391524, 0.76908016)
-bones/19/position = Vector3(-0.80481714, -0.1602762, 0.032299668)
+bones/19/position = Vector3(-0.81035817, -0.16027611, 0.050651837)
 bones/19/rotation = Quaternion(0.10981515, 0.06937717, 0.98259324, -0.13280818)
-bones/21/position = Vector3(0.66702414, 0.11479802, 0.51037365)
-bones/21/rotation = Quaternion(-0.15413363, 0.5785922, 0.79712796, 0.0778524)
+bones/21/position = Vector3(0.6707851, 0.1383252, 0.5191535)
+bones/21/rotation = Quaternion(-0.14963517, 0.5973747, 0.78434956, 0.074488714)
 bones/22/position = Vector3(0.08040476, 0.18562368, -0.04612934)
 bones/22/rotation = Quaternion(1.5994299e-07, -2.3467383e-07, 0.7164786, 0.6976091)
 bones/23/position = Vector3(-1.0045135, 0.20786075, -0.353273)
@@ -80,7 +80,7 @@ bones/35/rotation = Quaternion(0.024732148, 0.9996937, -0.00096060045, -0.000128
 bones/36/rotation = Quaternion(-0.0018554139, 0.00032808117, -0.67709494, 0.7358933)
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="KnightArmature/Skeleton3D" index="1" unique_id=764071106]
-transform = Transform3D(-0.27727807, 0.9480998, -0.15563849, -0.3167787, 0.062719256, 0.9464231, 0.9070654, 0.31172532, 0.28294736, 0.5424471, 1.1370772, 0.63708866)
+transform = Transform3D(-0.27032945, 0.95167357, -0.14573687, -0.2734388, 0.06924687, 0.95939326, 0.92312115, 0.29920238, 0.2415051, 0.54672086, 1.1748798, 0.6517936)
 bone_name = "item_L"
 bone_idx = 22
 

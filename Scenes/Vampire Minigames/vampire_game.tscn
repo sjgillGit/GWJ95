@@ -5,9 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://dvhsy57vf5csq" path="res://Scenes/Vampire Minigames/BatCounting/counting_scene.tscn" id="2_1x6qu"]
 [ext_resource type="PackedScene" uid="uid://bexh73aratnpf" path="res://Scenes/MapStuff/Arena.tscn" id="2_ye453"]
 [ext_resource type="PackedScene" uid="uid://bv0ter88cwt4a" path="res://Scenes/MapStuff/VampireMap.tscn" id="5_w5oxg"]
+[ext_resource type="Texture2D" uid="uid://bbea186wwl0a7" path="res://Assets/Textures/BrickFloor.png" id="7_dsi7e"]
 [ext_resource type="Script" uid="uid://cxga1p32q7vk" path="res://Scripts/Misc/camera_3d_arena.gd" id="8_w5oxg"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_nfy5u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8g22v"]
+albedo_texture = ExtResource("7_dsi7e")
+
+[sub_resource type="QuadMesh" id="QuadMesh_tdjn8"]
+size = Vector2(29, 29)
+orientation = 1
 
 [node name="VampireGame" type="Node3D" unique_id=1119769538]
 script = ExtResource("1_ye453")
@@ -30,3 +38,7 @@ shape = SubResource("WorldBoundaryShape3D_nfy5u")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1195828740]
 transform = Transform3D(1, 0, 0, 0, 0.86893296, 0.49492982, 0, -0.49492982, 0.86893296, 0, 7.5, 11.172607)
 script = ExtResource("8_w5oxg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=276308635]
+material_override = SubResource("StandardMaterial3D_8g22v")
+mesh = SubResource("QuadMesh_tdjn8")

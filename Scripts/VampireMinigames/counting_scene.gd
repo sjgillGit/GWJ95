@@ -65,6 +65,10 @@ func generate_answers(bat_count):
 	coffin_2.show()
 	coffin_3.show()
 	
+	coffin_1.set_text()
+	coffin_2.set_text()
+	coffin_3.set_text()
+	
 	coffin_1.position = Vector3(-5,0,0)
 	coffin_2.position = Vector3(0,0,0)
 	coffin_3.position = Vector3(5,0,0)
@@ -73,15 +77,16 @@ func generate_answers(bat_count):
 func _on_coffin_interacted(coffin):
 	if coffin.answer == bat_count:
 		print("Correct!")
+		coffin_1.hide()
+		coffin_2.hide()
+		coffin_3.hide()
+		position = Vector3(0,-20,0)
+		if Manager.mode == "explore":
+			cutscene_manager.vampire_cutscene_coffinshuffle_1()
+		else:
+			cutscene_manager.vampire_cutscene_coffinshuffle_2()
 	else:
 		print("Wrong!")
 		win_lost_manager.lose()
 	
-	coffin_1.hide()
-	coffin_2.hide()
-	coffin_3.hide()
-	position = Vector3(0,-20,0)
-	if Manager.mode == "explore":
-		cutscene_manager.vampire_cutscene_coffinshuffle_1()
-	else:
-		cutscene_manager.vampire_cutscene_coffinshuffle_2()
+	

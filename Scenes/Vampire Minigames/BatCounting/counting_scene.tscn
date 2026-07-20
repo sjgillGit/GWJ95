@@ -1,15 +1,11 @@
 [gd_scene format=3 uid="uid://dvhsy57vf5csq"]
 
 [ext_resource type="Script" uid="uid://dwj6chfhbfy8i" path="res://Scripts/VampireMinigames/counting_scene.gd" id="1_oyy0v"]
-[ext_resource type="Texture2D" uid="uid://beh1kdujgp412" path="res://icon.svg" id="1_wnfll"]
 [ext_resource type="PackedScene" uid="uid://d1vbeoxth8pi5" path="res://Scenes/Vampire Minigames/BatCounting/bat_counter_spawner.tscn" id="3_hs3tp"]
 [ext_resource type="PackedScene" uid="uid://cun1ijuf3idgr" path="res://Scenes/Vampire Minigames/BatCounting/counting_answers_coffin.tscn" id="5_ncxbk"]
 
 [node name="CountingScene" type="Node3D" unique_id=1386442738]
 script = ExtResource("1_oyy0v")
-
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=204831408]
-texture = ExtResource("1_wnfll")
 
 [node name="BatCounterSpawner" parent="." unique_id=1425264841 instance=ExtResource("3_hs3tp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0070357323, 0, 0)

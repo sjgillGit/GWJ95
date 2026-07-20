@@ -7,7 +7,7 @@ extends Node3D
 @onready var skeleton_game: Node3D = $"../SkeletonGame"
 @onready var textbox: Node2D = $"../Textbox"
 @onready var vampire: CharacterBody3D = $"../Vampire"
-@onready var skeleton: CharacterBody3D = $"../Skeleton"
+@onready var skeleton = $"../Skeleton"
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var duo_game: Node3D = $"../DuoGame"
